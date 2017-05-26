@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/app_bar_height"
+                android:background="@drawable/shape_userinfo_backgroud">
+
+    <FrameLayout
+        android:id="@id/fl_user_avatar"
+        android:layout_width="@dimen/userinfo.avatar.size"
+        android:layout_height="@dimen/userinfo.avatar.size"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="69.0dip">
+
+        <ImageView
+            android:layout_width="83.0dip"
+            android:layout_height="83.0dip"
+            android:layout_gravity="center"
+            android:contentDescription="@null"
+            android:src="@drawable/avatar_bg"/>
+
+        <ImageView
+            android:id="@id/iv_user_avatar"
+            android:layout_width="74.0dip"
+            android:layout_height="74.0dip"
+            android:layout_gravity="center"
+            android:contentDescription="@null"
+            android:src="@drawable/avatar_default_login"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fl_user_avatar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20.0dip"
+        android:gravity="center"
+        android:text="上地无言"
+        android:textColor="@color/user_name_color"
+        android:textSize="14.0sp"/>
+
+    <Button
+        android:id="@id/btn_credit"
+        android:layout_width="wrap_content"
+        android:layout_height="29.0dip"
+        android:layout_below="@id/tv_user_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15.0dip"
+        android:alpha="0.0"
+        android:background="@drawable/selector_user_credit_normal"
+        android:gravity="center"
+        android:paddingRight="5.0dip"
+        android:text="Credit"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="12.0sp"
+        android:translationY="-50.0px"/>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:src="@drawable/user_profile_grass"
+        android:visibility="gone"/>
+</RelativeLayout>

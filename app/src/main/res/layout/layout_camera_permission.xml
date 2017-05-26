@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@id/camera_permission_exception_layout"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@color/dark_transparent_bg_color"
+              android:gravity="center_horizontal"
+              android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28.0dip"
+        android:layout_marginTop="178.0dip"
+        android:src="@drawable/ic_qrcode_scanner"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/camera_permission_hint_text_1"
+        android:textColor="@android:color/white"
+        android:textSize="16.0sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4.0dip"
+        android:text="@string/qrcode_camera_permission_hint_text_2"
+        android:textColor="@android:color/white"
+        android:textSize="16.0sp"/>
+</LinearLayout>

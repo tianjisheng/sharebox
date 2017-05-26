@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@drawable/input_qrcode_background"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/activity_input_code_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/user_info_color"
+        app:popupTheme="@style/Theme.MyTheme.PopupOverlay">
+
+        <TextView
+            android:id="@+id/activity_input_code_toolbar_title_text"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"/>
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@id/qrcode_input_region"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45.0dip"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="90.0dip"
+            android:layout_marginBottom="25.0dip"
+            android:layout_marginTop="25.0dip"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/input_code_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="59dp"
+                android:ems="10"
+                android:inputType="number"
+                android:textColor="@android:color/white"
+                android:textColorLink="?attr/actionMenuTextColor"
+                android:textCursorDrawable="@color/E6E6"/>
+
+            <Button
+                android:id="@+id/activity_input_flash_light_btn"
+                style="@style/My.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="35.0dip"
+                android:background="@android:color/transparent"
+                android:drawableTop="@drawable/flash_light_button"
+                android:onClick="onBtnClick"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@id/hint_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20.0dip"
+            android:layout_marginRight="20.0dip"
+            android:layout_marginTop="16.0dip"
+            android:gravity="center"
+            android:lines="2"
+            android:text="@string/input_correct_boxid"
+            android:textColor="@color/scan_text_color"
+            android:textSize="12.0sp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/activity_input_box_unlock"
+        style="@style/My.Button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:layout_marginTop="20.0dip"
+        android:background="@drawable/input_qr_button_style"
+        android:enabled="true"
+        android:onClick="onBtnClick"
+        android:text="@string/confirm_unlock"
+        android:textColor="@android:color/white"/>
+
+    <include
+        layout="@layout/loading_toast"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent">
+
+    <!--<com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:sothree="http://schemas.android.com/apk/res-auto"-->
+                                                     <!--android:id="@id/slide_down_panel"-->
+                                                     <!--android:layout_width="fill_parent"-->
+                                                     <!--android:layout_height="fill_parent"-->
+                                                     <!--android:gravity="top"-->
+                                                     <!--sothree:umanoDragView="@id/slide_up_board"-->
+                                                     <!--sothree:umanoFadeColor="@android:color/transparent"-->
+                                                     <!--sothree:umanoOverlay="true"-->
+                                                     <!--sothree:umanoPanelHeight="0.0dip"-->
+                                                     <!--sothree:umanoParalaxOffset="40.0dip">-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="fill_parent">-->
+
+            <!--<FrameLayout-->
+                <!--android:id="@id/mapview_container"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="fill_parent"/>-->
+
+            <!--<LinearLayout-->
+                <!--android:id="@id/slide_down_board"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentTop="true"-->
+                <!--android:orientation="vertical">-->
+
+                <!--<com.mobike.mobikeapp.widget.MyHorizontalScrollView-->
+                    <!--android:id="@id/my_horizontal_scrollview"-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="?colorPrimary"-->
+                    <!--android:paddingBottom="12.0dip"-->
+                    <!--android:paddingLeft="15.0dip"-->
+                    <!--android:paddingRight="15.0dip"-->
+                    <!--android:paddingTop="2.0dip">-->
+
+                    <!--<FrameLayout-->
+                        <!--android:layout_width="fill_parent"-->
+                        <!--android:layout_height="wrap_content">-->
+
+                        <!--<TextView-->
+                            <!--android:id="@id/tab_background"-->
+                            <!--android:layout_width="90.0dip"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:background="@drawable/top_tab_select"/>-->
+
+                        <!--<LinearLayout-->
+                            <!--android:id="@id/tab_linear"-->
+                            <!--android:layout_width="fill_parent"-->
+                            <!--android:layout_height="fill_parent"-->
+                            <!--android:orientation="horizontal"/>-->
+                    <!--</FrameLayout>-->
+                <!--</com.mobike.mobikeapp.widget.MyHorizontalScrollView>-->
+
+                <!--<LinearLayout-->
+                    <!--android:id="@id/rl_status_bar"-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:alpha="0.9"-->
+                    <!--android:background="@color/main_app_color"-->
+                    <!--android:gravity="center_vertical">-->
+
+                    <!--<TextView-->
+                        <!--android:id="@id/tv_status_bar"-->
+                        <!--android:layout_width="0.0dip"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginRight="10.0dip"-->
+                        <!--android:layout_weight="1.0"-->
+                        <!--android:paddingBottom="14.0dip"-->
+                        <!--android:paddingLeft="10.0dip"-->
+                        <!--android:paddingRight="10.0dip"-->
+                        <!--android:paddingTop="14.0dip"-->
+                        <!--android:text="@string/tip_status_user_not_login"-->
+                        <!--android:textColor="@android:color/white"-->
+                        <!--android:textSize="14.0sp"/>-->
+
+                    <!--<ImageView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginRight="10.0dip"-->
+                        <!--android:scaleType="centerInside"-->
+                        <!--android:src="@drawable/right_arrow"/>-->
+                <!--</LinearLayout>-->
+
+                <!--<ImageView-->
+                    <!--android:id="@id/iv_home_banner"-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="53.0dip"-->
+                    <!--android:layout_margin="8.0dip"-->
+                    <!--android:scaleType="fitCenter"-->
+                    <!--android:visibility="gone"/>-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:id="@id/search_center_overlay"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:orientation="vertical"-->
+                <!--android:visibility="invisible">-->
+
+                <!--<include-->
+                    <!--layout="@layout/marker_info_window"-->
+                    <!--android:visibility="invisible"/>-->
+
+                <!--<ImageView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center_horizontal"-->
+                    <!--android:src="@drawable/search_center_ic"/>-->
+
+                <!--<ImageView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center_horizontal"-->
+                    <!--android:src="@drawable/search_center_ic"-->
+                    <!--android:visibility="invisible"/>-->
+
+                <!--<include-->
+                    <!--layout="@layout/marker_info_window"-->
+                    <!--android:visibility="invisible"/>-->
+            <!--</LinearLayout>-->
+        <!--</RelativeLayout>-->
+
+        <!--<include layout="@layout/slide_up_board"/>-->
+    <!--</com.sothree.slidinguppanel.SlidingUpPanelLayout>-->
+
+    <!--<include layout="@layout/alert_info_bar"/>-->
+
+    <!--<include-->
+        <!--layout="@layout/ride_info_overlay"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"/>-->
+
+    <!--<com.mobike.mobikeapp.widget.UnlockButton-->
+        <!--android:id="@id/unlock_button_layout"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="bottom|center"-->
+        <!--android:layout_marginBottom="14.0dip"/>-->
+
+    <!--<Button-->
+        <!--android:id="@id/map_location_button"-->
+        <!--style="@style/My.Button"-->
+        <!--android:layout_width="50.0dip"-->
+        <!--android:layout_height="50.0dip"-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:layout_marginBottom="16.0dip"-->
+        <!--android:layout_marginLeft="8.0dip"-->
+        <!--android:background="@drawable/map_location_button"-->
+        <!--android:visibility="gone"/>-->
+
+    <!--<FrameLayout-->
+        <!--android:id="@id/refresh_nearby_bike_button"-->
+        <!--android:layout_width="50.0dip"-->
+        <!--android:layout_height="50.0dip"-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:layout_marginBottom="72.0dip"-->
+        <!--android:layout_marginLeft="8.0dip"-->
+        <!--android:background="@drawable/map_refresh_button_background"-->
+        <!--android:visibility="gone">-->
+
+        <!--<ImageView-->
+            <!--android:id="@id/refresh_nearby_bike_button_arrow"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="fill_parent"-->
+            <!--android:src="@drawable/map_refresh_arrow"/>-->
+    <!--</FrameLayout>-->
+
+    <!--<Button-->
+        <!--android:id="@id/service_menu_button"-->
+        <!--style="@style/My.Button"-->
+        <!--android:layout_width="50.0dip"-->
+        <!--android:layout_height="50.0dip"-->
+        <!--android:layout_gravity="bottom|center|right"-->
+        <!--android:layout_marginBottom="16.0dip"-->
+        <!--android:layout_marginRight="8.0dip"-->
+        <!--android:background="@drawable/service_menu_button"-->
+        <!--android:visibility="gone"/>-->
+
+    <!--<RelativeLayout-->
+        <!--android:id="@id/redpacket_container"-->
+        <!--android:layout_width="50.0dip"-->
+        <!--android:layout_height="50.0dip"-->
+        <!--android:layout_gravity="bottom|center|right"-->
+        <!--android:layout_marginBottom="72.0dip"-->
+        <!--android:layout_marginRight="8.0dip"-->
+        <!--android:visibility="visible">-->
+
+        <!--<Button-->
+            <!--android:id="@id/red_packet_access"-->
+            <!--style="@style/My.Button"-->
+            <!--android:layout_width="50.0dip"-->
+            <!--android:layout_height="50.0dip"-->
+            <!--android:background="@drawable/assist_red_packet_access_selector"/>-->
+
+        <!--<View-->
+            <!--android:id="@id/redpacket_notifier"-->
+            <!--android:layout_width="10.0dip"-->
+            <!--android:layout_height="10.0dip"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:background="@drawable/shape_circle"-->
+            <!--android:visibility="invisible"/>-->
+    <!--</RelativeLayout>-->
+
+    <!--<Button-->
+        <!--android:id="@id/assist_bike_location_button"-->
+        <!--style="@style/My.Button"-->
+        <!--android:layout_width="50.0dip"-->
+        <!--android:layout_height="50.0dip"-->
+        <!--android:layout_gravity="bottom|center|right"-->
+        <!--android:layout_marginBottom="72.0dip"-->
+        <!--android:layout_marginRight="8.0dip"-->
+        <!--android:background="@drawable/assist_bike_location_button"-->
+        <!--android:visibility="gone"/>-->
+
+    <!--<include layout="@layout/loading_toast"/>-->
+</FrameLayout>

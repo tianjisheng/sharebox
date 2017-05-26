@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/rl_error_panel" android:background="@drawable/square_button_style" android:clickable="true" android:layout_width="fill_parent" android:layout_height="50.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:textSize="12.0sp" android:textColor="@android:color/white" android:gravity="center" android:id="@id/network_unavailable_button" android:background="@android:color/transparent" android:clickable="false" android:longClickable="false" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/network_unavailable" android:drawableLeft="@drawable/network_unavailable_ic" android:drawablePadding="10.0dip" android:layout_centerInParent="true" />
+    <Button android:textSize="12.0sp" android:textColor="@android:color/white" android:gravity="center" android:id="@id/service_unavailable_button" android:background="@android:color/transparent" android:visibility="gone" android:clickable="false" android:longClickable="false" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/service_unavailable" android:drawableLeft="@drawable/service_unavailable_ic" android:drawablePadding="10.0dip" android:layout_centerInParent="true" />
+</RelativeLayout>

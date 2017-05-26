@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:weightSum="3.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:id="@id/userinfo_count_distance" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="0" style="@style/Userinfo_Ride_Num" />
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/userinfo_distance_total" android:maxLines="1" style="@style/Userinfo_Ride_Content" />
+        </LinearLayout>
+        <View android:background="@color/ecec" android:layout_width="1.0px" android:layout_height="fill_parent" />
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:id="@id/userinfo_reduce_carbon_emission" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="0" style="@style/Userinfo_Ride_Num" />
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/userinfo_reduce_carbon_emission" android:maxLines="1" style="@style/Userinfo_Ride_Content" />
+        </LinearLayout>
+        <View android:background="@color/ecec" android:layout_width="1.0px" android:layout_height="fill_parent" />
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:id="@id/userinfo_count_power" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="0" android:maxLines="1" style="@style/Userinfo_Ride_Num" />
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/userinfo_power_total" android:maxLines="1" style="@style/Userinfo_Ride_Content" />
+        </LinearLayout>
+    </LinearLayout>
+    <View android:background="@color/ecec" android:layout_width="fill_parent" android:layout_height="1.0px" />
+</LinearLayout>

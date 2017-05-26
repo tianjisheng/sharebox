@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="26.0dip">
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_centerVertical="true">
+                <View android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" />
+                <ImageView android:layout_width="0.0dip" android:layout_height="fill_parent" android:src="@drawable/register_progress_line" android:scaleType="fitXY" android:layout_weight="1.0" />
+            </LinearLayout>
+            <ImageView android:layout_width="26.0dip" android:layout_height="26.0dip" android:src="@drawable/register_progress_complete_dot" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <TextView android:textSize="12.0sp" android:textColor="@color/sub_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/register_progress_vertical_margin" android:text="@string/register_progress_mobile_verify" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="26.0dip">
+            <ImageView android:layout_width="fill_parent" android:layout_height="1.0dip" android:src="@drawable/register_progress_line" android:scaleType="fitXY" android:layout_centerVertical="true" />
+            <ImageView android:layout_width="26.0dip" android:layout_height="26.0dip" android:src="@drawable/register_progress_complete_dot" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <TextView android:textSize="12.0sp" android:textColor="@color/sub_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/register_progress_vertical_margin" android:text="@string/register_progress_recharge_deposit" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="26.0dip">
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_centerVertical="true">
+                <ImageView android:layout_width="0.0dip" android:layout_height="fill_parent" android:src="@drawable/register_progress_line" android:scaleType="fitXY" android:layout_weight="1.0" />
+                <View android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" />
+            </LinearLayout>
+            <ImageView android:id="@id/register_idverify_undergoing_dot" android:layout_width="18.0dip" android:layout_height="18.0dip" android:src="@drawable/register_progress_undergoing_dot_background" android:layout_centerInParent="true" />
+            <ImageView android:layout_width="10.0dip" android:layout_height="10.0dip" android:src="@drawable/register_progress_undergoing_dot_foreground" android:layout_centerInParent="true" />
+        </RelativeLayout>
+        <TextView android:textSize="12.0sp" android:textColor="@color/sub_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/register_progress_vertical_margin" android:text="@string/register_progress_idcard_verify" />
+    </LinearLayout>
+</LinearLayout>

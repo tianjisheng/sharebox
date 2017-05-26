@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                                            android:id="@id/sv_user_center"
+                                            android:layout_width="fill_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@color/c_f5f5"
+                                            android:fillViewport="true"
+                                            android:visibility="visible"
+                                            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:id="@+id/view_user_center_content_main"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <include
+            android:id="@id/v_user_center_error_panel"
+            layout="@layout/view_error_panel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10.0dip"
+            android:visibility="gone"/>
+
+        <include
+            android:id="@id/v_user_center_register_summary"
+            layout="@layout/view_user_center_register_summary"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10.0dip"
+            android:visibility="gone"/>
+
+        <include
+            android:id="@id/v_user_center_ride_summary"
+            layout="@layout/view_user_center_ride_summary"
+            android:visibility="gone"/>
+        
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

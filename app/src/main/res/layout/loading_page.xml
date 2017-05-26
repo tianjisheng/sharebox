@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mobike.mobikeapp.widget.LoadingPageView xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:id="@id/loading_page_view"
+                                             android:layout_width="fill_parent"
+                                             android:layout_height="fill_parent"
+                                             android:layout_gravity="center"
+                                             android:background="@color/activity_background_color"
+                                             android:gravity="center"
+                                             android:orientation="vertical"
+                                             android:visibility="gone">
+
+    <ImageView
+        android:id="@id/loading_page_img"
+        android:layout_width="30.0dip"
+        android:layout_height="30.0dip"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/loading_wheel"/>
+
+    <TextView
+        android:id="@id/loading_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8.0dip"
+        android:text="@string/load_more_post"
+        android:textColor="@color/main_text_color"
+        android:textSize="18.0sp"/>
+</com.mobike.mobikeapp.widget.LoadingPageView>
