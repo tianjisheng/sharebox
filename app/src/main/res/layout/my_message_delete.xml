@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/my_message_delete_layout"
+              android:layout_width="match_parent"
+              android:layout_height="50dip"
+              android:orientation="horizontal"
+              android:background="@android:color/white"
+              android:weightSum="3">
+
+    <Button
+        android:id="@+id/my_message_delete_layout_delete_one"
+        style="@style/My.Button"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8" 
+        android:background="@drawable/square_button_style"
+        android:text="删除该条消息"/>
+
+    <Button
+        android:id="@+id/my_message_delete_layout_delete_all"
+        style="@style/My.Button"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:background="@drawable/square_button_style"
+        android:text="清空全部消息"/>
+
+    <Button
+        android:id="@+id/my_message_delete_layout_delete_cancel"
+        style="@style/My.Button"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:background="@drawable/square_button_style"
+        android:text="取消"/>
+</LinearLayout>

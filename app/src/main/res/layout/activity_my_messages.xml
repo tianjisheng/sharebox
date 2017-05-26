@@ -49,43 +49,9 @@
         <ViewStub
             android:id="@+id/my_message_delete_stub"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:id="@+id/my_message_delete_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <Button
-                    android:id="@+id/my_message_delete_layout_delete_one"
-                    style="@style/My.Button"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/square_button_style"
-                    android:text="删除该条消息"/>
-
-                <Button
-                    android:id="@+id/my_message_delete_layout_delete_all"
-                    style="@style/My.Button"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/square_button_style"
-                    android:text="清空全部消息"/>
-
-                <Button
-                    android:id="@+id/my_message_delete_layout_delete_cancel"
-                    style="@style/My.Button"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/square_button_style"
-                    android:text="取消"/>
-
-            </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout="@layout/my_message_delete"
+            android:layout_marginBottom="0dip">
         </ViewStub>
 
     </FrameLayout>
