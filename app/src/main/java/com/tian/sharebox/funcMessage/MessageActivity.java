@@ -1,19 +1,18 @@
-package com.tian.sharebox.activity;
+package com.tian.sharebox.funcMessage;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.ViewStub;
+import android.view.View; 
 
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
 import com.tian.sharebox.R;
+import com.tian.sharebox.activity.ActivityRoute;
+import com.tian.sharebox.BaseActivity;
 import com.tian.sharebox.data.MessageData;
-import com.tian.sharebox.ui.MessageAdapter;
-import com.tian.sharebox.ui.MessageItemCallback;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.ArrayList; 
 
 /**
  * @author jisheng ,tianjisheng@skyworth.com
@@ -21,11 +20,12 @@ import java.util.List;
  * @describe
  */
 
-public class UserMessageActivity extends UserBaseActivity implements SwipyRefreshLayout.OnRefreshListener
+public class MessageActivity extends BaseActivity implements SwipyRefreshLayout.OnRefreshListener
 {
-    private ViewStub mViewStub;
+    private View mViewStub;
     private MessageAdapter adapter;
     private SwipyRefreshLayout layout;
+
     @Override
     protected int getContentViewId()
     {
@@ -37,6 +37,7 @@ public class UserMessageActivity extends UserBaseActivity implements SwipyRefres
     {
         return R.id.activity_user_message_toolbar;
     }
+
     @Override
     protected int getTitleId()
     {
@@ -46,41 +47,48 @@ public class UserMessageActivity extends UserBaseActivity implements SwipyRefres
     @Override
     protected void setContent()
     {
-        
+
     }
 
+    private int deletePosition = -1;
     @Override
     protected void initSelfLayout()
     {
-        mViewStub = (ViewStub) findViewById(R.id.my_message_delete_stub);
-        
-        layout = (SwipyRefreshLayout) findViewById(R.id.my_messages_swipy_refresh_layout); 
+
+        mViewStub = findViewById(R.id.my_message_delete_stub);
+        layout = (SwipyRefreshLayout) findViewById(R.id.my_messages_swipy_refresh_layout);
         layout.setOnRefreshListener(this);
-        
-        
+
+
         adapter = new MessageAdapter(getApplicationContext());
         adapter.setCallback(new MessageItemCallback()
         {
             @Override
             public void onClick(MessageData data)
             {
-                Log.i("aa","onClick:"+data.getMessageTitle());
+                Log.i("aa", "onClick:" + data.getMessageTitle());
+                ActivityRoute.dispatcherActivity("activity/MessageDetailActivity","");
             }
 
             @Override
             public void onLongClick(MessageData data, int position)
             {
-                Log.i("aa","onLongClick");
-                mViewStub.inflate();
+                Log.i("aa", "onLongClick");
+                deletePosition = position;
+                if (mViewStub.getVisibility() != View.VISIBLE)
+                {
+                    mViewStub.setVisibility(View.VISIBLE);
+                }
+                Log.i("aa", "onLongClick:"+mViewStub.getVisibility());
             }
         });
         initData();
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.my_messages_listview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));
         recyclerView.setAdapter(adapter);
-        
+
     }
-    
+
     private void initData()
     {
         ArrayList<MessageData> list = new ArrayList<>();
@@ -95,7 +103,7 @@ public class UserMessageActivity extends UserBaseActivity implements SwipyRefres
         data1.setMessageDate("2017-5-24 00:00");
         data1.setMessageTitle("安全出行，共创文明");
         list.add(data1);
-        
+
         MessageData data2 = new MessageData();
         data2.setId(3);
         data2.setMessageDate("2017-5-23 00:00");
@@ -108,7 +116,7 @@ public class UserMessageActivity extends UserBaseActivity implements SwipyRefres
         data3.setMessageTitle("测试");
         data3.setMessageBody("是带有body的消息");
         list.add(data3);
-        
+
         adapter.setMessageDataList(list);
     }
 
@@ -121,6 +129,54 @@ public class UserMessageActivity extends UserBaseActivity implements SwipyRefres
     @Override
     public void onRefresh(SwipyRefreshLayoutDirection direction)
     {
-         Log.i("aa",""+direction);
+        Log.i("aa", "" + direction);
+    }
+
+    public void onDeleteBtn(View view)
+    {
+        switch (view.getId())
+        {
+            case R.id.my_message_delete_layout_delete_all:
+                handleClearAll();
+                break;
+            case R.id.my_message_delete_layout_delete_one:
+                handleDeleteOne();
+                break;
+            case R.id.my_message_delete_layout_delete_cancel:
+                handleCancel();
+                break;
+        }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Log.i("aa",""+(mViewStub != null));
+        Log.i("aa",""+(mViewStub.getVisibility()));
+        if (mViewStub != null && mViewStub.getVisibility() == View.VISIBLE)
+        {
+            handleCancel();
+        } else
+        {
+            super.onBackPressed();
+        }
+
+    }
+
+    private void handleCancel()
+    {
+        mViewStub.setVisibility(View.INVISIBLE);  
+    }
+
+    private void handleClearAll()
+    {
+        handleCancel();
+        adapter.deleteAllItem();
+    }
+
+    private void handleDeleteOne()
+    {
+        handleCancel();
+        adapter.deleteItemPosition(deletePosition);
     }
 }

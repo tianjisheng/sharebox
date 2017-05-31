@@ -1,4 +1,4 @@
-package com.tian.sharebox.activity;
+package com.tian.sharebox.funcScan;
 
 import android.app.Activity;
 import android.content.Intent;

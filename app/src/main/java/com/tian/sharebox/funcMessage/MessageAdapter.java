@@ -1,4 +1,4 @@
-package com.tian.sharebox.ui;
+package com.tian.sharebox.funcMessage;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -89,6 +89,15 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             {
                 notifyItemRangeChanged(position,messageDataList.size()-position);
             }
+        }
+    }
+    
+    public void deleteAllItem()
+    {
+        if (messageDataList!=null)
+        {
+            messageDataList.clear();
+            notifyDataSetChanged();
         }
     }
 

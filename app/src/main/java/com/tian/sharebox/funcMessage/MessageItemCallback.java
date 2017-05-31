@@ -1,4 +1,4 @@
-package com.tian.sharebox.ui;
+package com.tian.sharebox.funcMessage;
 
 import com.tian.sharebox.data.MessageData;
 

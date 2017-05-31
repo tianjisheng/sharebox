@@ -1171,6 +1171,7 @@
     </style>
     <style name="My.Button" parent="@style/Widget.AppCompat.Button.Borderless">
         <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
     <style name="MyDialogStyle">
         <item name="android:windowBackground">@android:color/transparent</item>

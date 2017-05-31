@@ -1,16 +1,16 @@
-package com.tian.sharebox.activity;
+package com.tian.sharebox.funcUser;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tian.sharebox.R;
+import com.tian.sharebox.activity.ActivityRoute;
 import com.tian.sharebox.config.UserActivityConfig;
 import com.tian.sharebox.config.UserItemConfig;
 
@@ -161,6 +161,6 @@ public class UserCenterActivity extends Activity
 
     public void onItemClick(View view)
     {
-        ActivityRoute.dispatcherActivity(viewUserItemConfigHashMap.get(view),"");
+        ActivityRoute.dispatcherActivity(viewUserItemConfigHashMap.get(view).toWhere,"");
     }
 }

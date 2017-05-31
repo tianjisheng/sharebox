@@ -1,36 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/my_message_delete_layout"
-              android:layout_width="match_parent"
-              android:layout_height="50dip"
-              android:orientation="horizontal"
-              android:background="@android:color/white"
-              android:weightSum="3">
-
-    <Button
-        android:id="@+id/my_message_delete_layout_delete_one"
-        style="@style/My.Button"
-        android:layout_width="0dip"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                                    android:id="@+id/my_message_delete_layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:cardElevation="5dip"
+                                    app:cardBackgroundColor="@android:color/white">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.8" 
-        android:background="@drawable/square_button_style"
-        android:text="删除该条消息"/>
+        android:layout_marginTop="25dip"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <Button
+            android:id="@+id/my_message_delete_layout_delete_one"
+            style="@style/My.Button"
+            android:layout_width="0dip"
+            android:layout_weight="0.33"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:onClick="onDeleteBtn"
+            android:background="@drawable/circle_button_style"
+            android:text="删除该条消息"/>
 
-    <Button
-        android:id="@+id/my_message_delete_layout_delete_all"
-        style="@style/My.Button"
-        android:layout_width="0dip"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.8"
-        android:background="@drawable/square_button_style"
-        android:text="清空全部消息"/>
+        <Button
+            android:id="@+id/my_message_delete_layout_delete_all"
+            style="@style/My.Button"
+            android:layout_width="0dip"
+            android:layout_weight="0.33"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_gravity="center_vertical"
+            android:text="清空全部消息"
+            android:background="@drawable/circle_button_style"
+            android:onClick="onDeleteBtn"/>
 
-    <Button
-        android:id="@+id/my_message_delete_layout_delete_cancel"
-        style="@style/My.Button"
-        android:layout_width="0dip"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.8"
-        android:background="@drawable/square_button_style"
-        android:text="取消"/>
-</LinearLayout>
+        <Button
+            android:id="@+id/my_message_delete_layout_delete_cancel"
+            style="@style/My.Button"
+            android:layout_width="0dip"
+            android:layout_weight="0.33"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/circle_button_style"
+            android:layout_gravity="center_vertical"
+            android:text="取消"
+            android:onClick="onDeleteBtn"/>
+    </LinearLayout>
+
+    
+</android.support.v7.widget.CardView>

@@ -39,18 +39,21 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ScanActivity" 
+        <activity android:name=".funcScan.ScanActivity" 
             android:label="@string/scan_qrcode"/>
-        <activity android:name=".activity.InputCodeActivity"
+        <activity android:name=".funcScan.InputCodeActivity"
                   android:label="@string/input_qrcode_unlock"/>
-        <activity android:name=".activity.UserCenterActivity" 
+        <activity android:name=".funcUser.UserCenterActivity" 
             android:label="@string/user_center"/>
-        <activity android:name=".activity.UserBorrowActivity" 
+        <activity android:name=".activity.BorrowActivity" 
             android:label="@string/my_borrow_title"/>
-        <activity android:name=".activity.UserMessageActivity"
+        <activity android:name=".funcMessage.MessageActivity"
             android:label="@string/my_message_title"/>
-        <activity android:name=".activity.UserSettingActivity"
+        <activity android:name=".activity.SettingActivity"
             android:label="@string/settings_title"/>
+        <activity android:name=".funcMessage.MessageDetailActivity"/>
+        <activity android:name=".funcLogin.LoginActivity"
+            android:label="@string/title_activity_login"/>
     </application>
 
 </manifest>

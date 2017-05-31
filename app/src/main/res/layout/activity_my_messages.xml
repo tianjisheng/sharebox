@@ -22,7 +22,7 @@
             android:textColor="@android:color/white"/>
     </android.support.v7.widget.Toolbar>
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="@color/c_eded">
@@ -46,13 +46,12 @@
                 android:scrollbars="none"/>
         </com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout>
 
-        <ViewStub
-            android:id="@+id/my_message_delete_stub"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout="@layout/my_message_delete"
-            android:layout_marginBottom="0dip">
-        </ViewStub>
+        <include layout="@layout/my_message_delete"
+                 android:id="@+id/my_message_delete_stub"
+                 android:layout_width="match_parent"
+                 android:layout_height="100dip"
+                 android:visibility="gone"
+                 android:layout_alignParentBottom="true"/>
 
-    </FrameLayout>
+    </RelativeLayout>
 </LinearLayout>

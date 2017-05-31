@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/activity_message_detail_toolbar"
+        android:background="@color/user_info_color"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentTop="true"
+        app:popupTheme="@style/Theme.MyTheme.PopupOverlay">
+
+        <TextView
+            android:id="@+id/activity_message_detail_toolbar_title_text"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"/>
+    </android.support.v7.widget.Toolbar>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/activity_message_detail_toolbar">
+
+        <WebView
+            android:id="@+id/webview_message_container"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layerType="software"
+            android:scrollbars="none"/>
+
+        <include layout="@layout/loading_page"/>
+
+        <include
+            layout="@layout/network_unavailable_view"
+            android:background="@color/activity_background_color"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+</RelativeLayout>

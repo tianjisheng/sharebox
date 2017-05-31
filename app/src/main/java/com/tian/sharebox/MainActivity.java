@@ -2,21 +2,15 @@ package com.tian.sharebox;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle; 
-import android.view.Menu;
-import android.view.MenuItem;
+import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.MapView;
-import com.tian.sharebox.activity.ScanActivity;
-import com.tian.sharebox.activity.UserCenterActivity;
-import com.tian.sharebox.activity.UserMessageActivity;
-
-import java.lang.reflect.Method;
+import com.tian.sharebox.activity.ActivityRoute;
+import com.tian.sharebox.funcScan.ScanActivity;
 
 public class MainActivity extends Activity
 {
@@ -88,14 +82,12 @@ public class MainActivity extends Activity
     
     private void ToUserCenter()
     {
-        Intent intent = new Intent(this, UserCenterActivity.class);
-        this.startActivity(intent);
+        ActivityRoute.dispatcherActivity("activity/UserCenterActivity","");
     }
 
     private void ToMyMessage()
     {
-        Intent intent = new Intent(this, UserMessageActivity.class);
-        this.startActivity(intent);
+        ActivityRoute.dispatcherActivity("activity/UserMessageActivity","");
     }
 
 }

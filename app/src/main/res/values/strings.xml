@@ -12,8 +12,9 @@
     <string name="input_qrcode_unlock">输入编号开锁</string>
     <string name="input_correct_boxid">请确认您输入了正确的编码</string>
     <string name="scan_qrcode_unlock">扫码开锁</string>
-    
-    
+    <string name="get_default_verify_code">验证码功能暂未实现，输入170527</string>
+    <string name="disclaimer_title">《服务条款》</string>
+    <string name="title_activity_login">手机验证</string>
     
     <string name="cancel">取消</string>
     <string name="Invite_friend_together">呼朋唤友一起骑行</string>
@@ -171,7 +172,7 @@
     <string name="dialog_red_packet_msg">你获得一个摩拜现金红包</string>
     <string name="dialog_unlock_help_message">当您到达目的地之后请手动关锁，即可完成还车计费。</string>
     <string name="dialog_unlock_help_title">如何还车</string>
-    <string name="disclaimer_title">《用车服务条款》</string>
+    
     <string name="doing_login">登录中…</string>
     <string name="easter_bike_default_award">神秘大奖</string>
     <string name="easter_bike_ride_hint">骑行该彩蛋车%1$d小时内免费，有效骑行超过%2$d分钟就有机会抽取</string>
@@ -228,7 +229,7 @@
     <string name="get_verify_code">获取验证码</string>
     <string name="get_verify_code_again">重发验证码</string>
     <string name="get_verify_code_countdown_text">%d秒</string>
-    <string name="get_voice_verify_code">收不到短信，试试语音验证码</string>
+    
     <string name="getting_verify_code">获取中…</string>
     <string name="got_it">知道了</string>
     <string name="got_trip_surprise">你已获得一个摩拜宝箱！</string>
@@ -664,7 +665,7 @@
     <string name="tip_status_user_not_verify">您尚未进行实名验证，无法租车骑行</string>
     <string name="title_activity_action_search">搜索</string>
     <string name="title_activity_help_hint">提醒帮助页</string>
-    <string name="title_activity_login">手机验证</string>
+    
     <string name="title_activity_pay">车费充值</string>
     <string name="title_activity_red_packet_amount_detail">摩拜红包</string>
     <string name="title_activity_ride_result">骑行结束页</string>
