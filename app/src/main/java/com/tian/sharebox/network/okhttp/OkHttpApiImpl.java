@@ -1,13 +1,18 @@
 package com.tian.sharebox.network.okhttp;
 
+import com.alibaba.fastjson.JSONObject;
 import com.tian.sharebox.network.okhttp.callback.ShareBoxCallback;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -64,6 +69,7 @@ public class OkHttpApiImpl
     public void getString(String url, ShareBoxCallback callback) throws IOException
     {
         final Request request = new Request.Builder()
+                .tag(url)
                 .url(url)
                 .build();
         Call call = okHttpClient.newCall(request);
@@ -97,6 +103,7 @@ public class OkHttpApiImpl
     public void getResponse(String url, ShareBoxCallback callback) throws IOException
     {
         final Request request = new Request.Builder()
+                .tag(url)
                 .url(url)
                 .build();
         Call call = okHttpClient.newCall(request);
@@ -105,12 +112,27 @@ public class OkHttpApiImpl
 
     private Request buildRequest(String url, HashMap<String, String> params)
     {
-        RequestBody formBody = new FormBody.Builder()
-                .add("", "")
-                .build(); 
+        FormBody.Builder builder = new FormBody.Builder();
+        JSONObject jsonObject = new JSONObject();
+        if (params != null && params.size() > 0)
+        {
+            Set<Map.Entry<String, String>> entries = params.entrySet();
+            Iterator<Map.Entry<String, String>> iterators = entries.iterator();
+            while (iterators.hasNext())
+            {
+                Map.Entry<String, String> entry = iterators.next();
+                builder.add(entry.getKey(), entry.getValue());
+                jsonObject.put(entry.getKey(), entry.getValue());
+            }
+        }
+        
         return new Request.Builder()
+                .addHeader("content-type", "application/json;charset:utf-8")
                 .url(url)
-                .post(formBody)
+                .tag(url)
+                .post(RequestBody.create(
+                        MediaType.parse("application/json; charset=utf-8"),
+                        jsonObject.toJSONString()))
                 .build();
     }
 
@@ -124,7 +146,8 @@ public class OkHttpApiImpl
      */
     public String postString(String url, HashMap<String, String> params) throws IOException
     {
-        return "";
+        Response response = postResponse(url, params);
+        return response.body().toString();
     }
 
     /**
@@ -137,7 +160,9 @@ public class OkHttpApiImpl
      */
     public Response postResponse(String url, HashMap<String, String> params) throws IOException
     {
-        return null;
+        Call call = okHttpClient.newCall(buildRequest(url, params));
+        Response response = call.execute();
+        return response;
     }
 
     /**
@@ -150,7 +175,32 @@ public class OkHttpApiImpl
      */
     public void postString(String url, ShareBoxCallback callback, HashMap<String, String> params) throws IOException
     {
-
+        Call call = okHttpClient.newCall(buildRequest(url, params));
+        call.enqueue(callback);
+    }
+    
+    public void cancel(String tag)
+    {
+        for (Call call:okHttpClient.dispatcher().runningCalls())
+        {
+            if (call.request().tag().equals(tag))
+            {
+                call.cancel();
+            }
+        }
+        
+        for (Call call:okHttpClient.dispatcher().queuedCalls())
+        {
+            if (call.request().tag().equals(tag))
+            {
+                call.cancel();
+            }
+        }
+    }
+    
+    public void cancelAll()
+    {
+        okHttpClient.dispatcher().cancelAll();
     }
 
     /**
@@ -163,8 +213,7 @@ public class OkHttpApiImpl
      */
     public void postResponse(String url, ShareBoxCallback callback, HashMap<String, String> params) throws IOException
     {
-
+        Call call = okHttpClient.newCall(buildRequest(url, params));
+        call.enqueue(callback);
     }
-
-
 }

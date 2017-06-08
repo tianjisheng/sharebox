@@ -4,6 +4,7 @@
     <string name="user_center">用户中心</string>
     <string name="my_setting_title">用户中心</string>
     <string name="my_borrow_title">我的租借</string>
+    <string name="borrow">租借</string>
     <string name="settings_title">设置</string>
     <string name="action_settings">设置</string>
     <string name="input_qrcode">输入储物柜编号</string>
@@ -15,8 +16,22 @@
     <string name="get_default_verify_code">验证码功能暂未实现，输入170527</string>
     <string name="disclaimer_title">《服务条款》</string>
     <string name="title_activity_login">手机验证</string>
-    
+    <string name="title_activity_box_detail">详情</string>
+    <string name="activity_order_order_id">订单号:%1$s</string>
+    <string name="activity_order_order_state">订单状态:%1$s</string>
+    <string name="activity_order_order_goods">物品:%1$s</string>
+    <string name="activity_order_order_start_time">开始时间:%1$s</string>
+    <string name="activity_order_order_end_time">结束时间:%1$s</string>
+    <string name="activity_order_total">订单共计:%1$d条</string>
+    <string name="activity_order_distance">使用距离:%1$f</string>
+    <string name="activity_order_cost">费用共计:%1$f</string>
+    <string name="activity_order_borrow_from">从租借:%1$s</string>
+    <string name="activity_order_return_to">归还到:%1$s</string>
+    <string name="cancel_order">取消订单</string>
+    <string name="pay_order">支付订单</string>
     <string name="cancel">取消</string>
+    <string name="title_activity_order_detail">订单详情</string>
+    
     <string name="Invite_friend_together">呼朋唤友一起骑行</string>
     <string name="No.bike">单车编号</string>
     <string name="No.bike.format">单车编号: %s</string>
@@ -802,4 +817,7 @@
     <string name="wx_circle_img_content">城市短途首选出行方式</string>
     <string name="wx_pay">微信</string>
     <string name="wx_pay_type">微信支付</string>
+    <string name="box_name">名称:</string>
+    <string name="box_address">地址:</string>
+    <string name="borrow_confirm">点击租借</string>
 </resources>

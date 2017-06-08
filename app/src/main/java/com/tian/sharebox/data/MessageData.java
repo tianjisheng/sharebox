@@ -3,7 +3,7 @@ package com.tian.sharebox.data;
 /**
  * @author jisheng ,tianjisheng@skyworth.com
  * @date 2017/5/26
- * @describe
+ * @describe 消息格式
  */
 
 public class MessageData

@@ -1,5 +1,7 @@
 package com.tian.sharebox.config;
 
+import com.tian.sharebox.activity.ActivityRoute;
+
 /**
  * @author jisheng ,tianjisheng@skyworth.com
  * @date 2017/5/24
@@ -13,7 +15,7 @@ public class UserActivityConfig
             .itemIndex(0)
             .itemId("my_borrow")
             .itemTitle("我的借阅")
-            .toWhere("activity/UserBorrowActivity");
+            .toWhere(ActivityRoute.OrderActivity);
 
     public static UserItemConfig myMessageItem = new UserItemConfig()
             .groupIndex(0)
@@ -22,7 +24,7 @@ public class UserActivityConfig
             .itemTitle("消息")
             .summaryTitle("有促销")
             .hasRed(true)
-            .toWhere("activity/UserMessageActivity");
+            .toWhere(ActivityRoute.MessageActivity);
 
     public static UserItemConfig settingItem = new UserItemConfig()
             .groupIndex(1)
@@ -30,6 +32,6 @@ public class UserActivityConfig
             .itemId("setting")
             .itemTitle("设置")
             .summaryTitle("可以看看")
-            .toWhere("activity/UserSettingActivity");
+            .toWhere(ActivityRoute.SettingActivity);
 
 }

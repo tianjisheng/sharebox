@@ -19,7 +19,7 @@ public class ToastViewUtil
     
     public static void showToast(String content,int time)
     {
-        Toast.makeText(MyApplication.ApplicationContext,content,time).show();
+        Toast.makeText(MyApplication.mApplication,content,time).show();
     }
     
 }

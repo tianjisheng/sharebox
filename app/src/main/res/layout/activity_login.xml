@@ -60,7 +60,7 @@
                     android:textSize="13.0sp"
                     android:visibility="visible"/>
 
-                <com.tian.sharebox.ui.ClearEditText
+                <com.tian.sharebox.widget.ClearEditText
                     android:id="@id/mobile_number"
                     android:layout_width="0.0dip"
                     android:layout_height="fill_parent"

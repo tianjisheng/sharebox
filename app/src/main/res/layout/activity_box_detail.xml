@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/activity_box_detail_toolbar"
+        android:background="@color/user_info_color"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentTop="true"
+        app:popupTheme="@style/Theme.MyTheme.PopupOverlay">
+
+        <TextView
+            android:id="@+id/activity_box_detail_toolbar_title_text"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"/>
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin" 
+        android:id="@+id/activity_box_detail_name">
+
+        <TextView
+            android:text="@string/box_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/activity_box_detail_name_title"
+            android:textSize="@dimen/textSize_16"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:text="第一个个鬼" 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textSize_16"
+            android:id="@+id/activity_box_detail_name_value"
+            android:layout_weight="15"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin" 
+        android:id="@+id/activity_box_detail_address">
+
+        <TextView
+            android:text="@string/box_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/activity_box_detail_address_title"
+            android:textSize="@dimen/textSize_16"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:text="深圳是保安全"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/activity_box_detail_address_value"
+            android:textSize="@dimen/textSize_16"
+            android:layout_weight="15"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="11.0dip"
+        android:id="@+id/activity_box_detail_category"/>
+
+    <include
+        layout="@layout/loading_toast"
+        android:id="@+id/activity_box_detail_loading"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="-64dp"/>
+
+</LinearLayout>

@@ -85,7 +85,7 @@
         android:layout_marginLeft="20.0dip"
         android:layout_marginRight="20.0dip"
         android:layout_marginTop="20.0dip"
-        android:background="@drawable/input_qr_button_style"
+        android:background="@drawable/circle_qr_button_style"
         android:enabled="true"
         android:onClick="onBtnClick"
         android:text="@string/confirm_unlock"

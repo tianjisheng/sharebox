@@ -1,6 +1,6 @@
 package com.tian.sharebox.network;
 
-import com.tian.sharebox.data.ShareBoxDetailInfo;
+import com.tian.sharebox.data.BoxData;
 
 import java.util.ArrayList;
 
@@ -25,12 +25,12 @@ public class ApiCollection
          * @param y 纬度
          * @return 周边盒子列表?有可能是id列表
          */
-        ArrayList<ShareBoxDetailInfo> getGroupByBoxes(long x,long y);
+        ArrayList<BoxData> getGroupByBoxes(long x, long y, int range);
             
     }
     
     public interface IDetailInfo
     {
-        ShareBoxDetailInfo getDetailInfo(String id);
+        BoxData getDetailInfo(String id);
     }
 }

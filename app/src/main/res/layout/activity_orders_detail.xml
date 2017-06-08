@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@color/activity_background_color"
+              android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/activity_order_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/user_info_color"
+        app:popupTheme="@style/Theme.MyTheme.PopupOverlay">
+
+        <TextView
+            android:id="@+id/activity_order_toolbar_title_text"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"/>
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/my_order_detail_item_body"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/my_message_list_item_selector"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/my_order_detail_item_body_order_id"
+            style="@style/orderDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_order_order_id"/>
+
+        <include layout="@layout/divider_user_center"/>
+
+        <TextView
+            android:id="@+id/my_order_detail_item_body_order_state"
+            style="@style/orderDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_order_order_state"/>
+
+        <include layout="@layout/divider_user_center"/>
+
+        <TextView
+            android:id="@+id/my_order_detail_item_body_order_goods"
+            style="@style/orderDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_order_order_goods"/>
+
+        <include layout="@layout/divider_user_center"/>
+
+        <TextView
+            android:id="@+id/my_order_detail_item_body_start_time"
+            style="@style/orderDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_order_order_start_time"/>
+
+        <include layout="@layout/divider_user_center"/>
+
+        <TextView
+            android:id="@+id/my_order_detail_item_body_end_time"
+            style="@style/orderDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_order_order_end_time"/>
+
+        <include layout="@layout/divider_user_center"/>
+
+        <TextView
+            android:id="@+id/my_order_detail_item_body_distance"
+            style="@style/orderDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_order_distance"/>
+
+        <include layout="@layout/divider_user_center"/>
+
+        <TextView
+            android:id="@+id/my_order_detail_item_body_cost"
+            style="@style/orderDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_order_cost"/>
+
+        <include layout="@layout/divider_user_center"/>
+
+        <TextView
+            android:id="@+id/my_order_detail_item_body_borrow_from"
+            style="@style/orderDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_order_borrow_from"/>
+
+        <include layout="@layout/divider_user_center"/>
+
+
+        <TextView
+            android:id="@+id/my_order_detail_item_body_return_to"
+            style="@style/orderDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_order_return_to"/>
+
+        <include layout="@layout/divider_user_center"/>
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/order_detail_cancel_btn"
+            style="@style/My.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20.0dip"
+            android:layout_marginRight="20.0dip"
+            android:layout_marginTop="20.0dip"
+            android:layout_weight="1"
+            android:background="@drawable/circle_qr_button_style"
+            android:onClick="onClick"
+            android:text="@string/cancel_order"/>
+
+        <Button
+            android:id="@+id/order_detail_pay_btn"
+            style="@style/My.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20.0dip"
+            android:layout_marginRight="20.0dip"
+            android:layout_marginTop="20.0dip"
+            android:layout_weight="1"
+            android:background="@drawable/circle_qr_button_style"
+            android:onClick="onClick"
+            android:text="@string/pay_order"/>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/activity_order_detail_loading"
+        layout="@layout/loading_toast"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:visibility="visible"/>
+
+</LinearLayout>

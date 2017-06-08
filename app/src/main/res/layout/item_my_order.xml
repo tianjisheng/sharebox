@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/my_order_item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="30.0dip"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/sub_text_color"
+        android:textSize="11.0sp"/>
+
+    <LinearLayout
+        android:id="@+id/my_order_item_body"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_message_list_item_selector"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/my_order_item_body_order_id"
+            style="@style/order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_order_order_id"/>
+
+        <include layout="@layout/divider_user_center"/>
+
+        <TextView
+            android:id="@+id/my_order_item_body_order_state"
+            style="@style/order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_order_order_state"/>
+
+        <include layout="@layout/divider_user_center"/>
+
+        <TextView
+            android:id="@+id/my_order_item_body_order_goods"
+            style="@style/order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_order_order_goods"/>
+
+        <include layout="@layout/divider_user_center"/>
+
+        <TextView
+            android:id="@+id/my_order_item_body_start_time"
+            style="@style/order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_order_order_start_time"/>
+
+        <include layout="@layout/divider_user_center"/>
+
+        <TextView
+            android:id="@+id/my_order_item_body_end_time"
+            style="@style/order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_order_order_end_time"
+            />
+
+        <include layout="@layout/divider_user_center"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingBottom="10.0dip"
+            android:paddingTop="10.0dip">
+
+            <TextView
+                android:id="@+id/my_order_item_title_text"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_weight="1.0"
+                android:maxLines="1"
+                android:text="@string/title_activity_box_detail"
+                android:textColor="@color/main_app_color"
+                android:textSize="13.0sp"/>
+
+            <ImageView
+                android:layout_width="12.0dip"
+                android:layout_height="12.0dip"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:src="@drawable/list_item_indicator"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

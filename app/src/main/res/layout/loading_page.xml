@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.tian.sharebox.ui.LoadingPageView xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:id="@id/loading_page_view"
-                                             android:layout_width="fill_parent"
-                                             android:layout_height="fill_parent"
-                                             android:layout_gravity="center"
-                                             android:background="@color/activity_background_color"
-                                             android:gravity="center"
-                                             android:orientation="vertical"
-                                             android:visibility="gone">
+<com.tian.sharebox.widget.LoadingPageView xmlns:android="http://schemas.android.com/apk/res/android"
+                                          android:id="@id/loading_page_view"
+                                          android:layout_width="fill_parent"
+                                          android:layout_height="fill_parent"
+                                          android:layout_gravity="center"
+                                          android:background="@color/activity_background_color"
+                                          android:gravity="center"
+                                          android:orientation="vertical"
+                                          android:visibility="gone">
 
     <ImageView
         android:id="@id/loading_page_img"
@@ -25,4 +25,4 @@
         android:text="@string/load_more_post"
         android:textColor="@color/main_text_color"
         android:textSize="18.0sp"/>
-</com.tian.sharebox.ui.LoadingPageView>
+</com.tian.sharebox.widget.LoadingPageView>
