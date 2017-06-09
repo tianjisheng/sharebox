@@ -14,9 +14,9 @@ public interface DetailOrderContract
 {
     interface View extends BaseView
     {
-        void showLoading();
-        void hideLoading();
         void refreshUI(OrderDetailData data);
+        void cancel(boolean isSuccess,String describe);
+        void pay(boolean isSuccess,String describe);
     }
     
     interface Presenter extends BasePresenter

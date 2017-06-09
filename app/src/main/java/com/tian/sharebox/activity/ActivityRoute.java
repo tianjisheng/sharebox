@@ -62,6 +62,7 @@ public class ActivityRoute
     {
         Intent intent = new Intent(MyApplication.mApplication, activityMap.get(activity));
         intent.putExtra(ParamJsonKey, paramJson);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         MyApplication.mApplication.startActivity(intent);
     }
 
@@ -71,6 +72,7 @@ public class ActivityRoute
     {
         Intent intent = new Intent(MyApplication.mApplication, activityMap.get(activity));
         intent.putExtra(ParamBundleKey, paramBundle);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         MyApplication.mApplication.startActivity(intent);
     }
 }

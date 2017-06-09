@@ -14,7 +14,7 @@ public class OrderData
     private String orderState = "";
     private String startTime = "";
     private String endTime = "";
-    private String[] stateName = {"异常","下单","执行中","取消","待支付","支付完成"};
+    private String[] stateName = {"异常","下单","执行中","取消","待支付","支付完成"};//0==异常，1==下单，2==执行中，3==取消，4待支付，5==支付完成
 
     public String getOrderId()
     {

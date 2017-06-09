@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
+import com.tian.sharebox.MyApplication;
 import com.tian.sharebox.R;
 import com.tian.sharebox.activity.ActivityRoute;
 import com.tian.sharebox.activity.BaseActivity;
@@ -81,12 +82,14 @@ public class OrderActivity extends BaseActivity implements OrderContract.View, S
     }
 
     @Override
-    protected void onResume()
+    public void onWindowFocusChanged(boolean hasFocus)
     {
-        super.onResume();
-        presenter.loadData("test",currentPage+1);
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus)
+        {//之所以放在此处，是为了保证swipyRefreshLayout已绘制，让loading可以正常显示。
+            presenter.loadData(MyApplication.mApplication.getToken(),currentPage+1);
+        }
     }
-
 
     @Override
     public boolean isUIShown()
@@ -98,7 +101,7 @@ public class OrderActivity extends BaseActivity implements OrderContract.View, S
     public void onRefresh(SwipyRefreshLayoutDirection direction)
     {
         LogUtil.i("" + direction);
-        presenter.loadData("test",currentPage+1);
+        presenter.loadData(MyApplication.mApplication.getToken(),currentPage+1);
         
     }
 

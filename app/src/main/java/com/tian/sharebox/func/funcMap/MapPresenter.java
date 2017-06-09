@@ -76,6 +76,15 @@ public class MapPresenter implements MapContract.Presenter, BaiduMap.OnMapStatus
     @Override
     public void onDestroy()
     {
+        view.getMap().removeMarkerClickListener(this);
+        view.getMap().clear();
+        markers.clear();
+        if (mlo!=null && listener !=null)
+        {
+            mlo.unRegisterLocationListener(listener);
+        }
+        mlo = null;
+        listener = null;
         view = null;
         OkHttpApiImpl.getInstance().cancelAll();
     }

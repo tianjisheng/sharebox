@@ -31,7 +31,8 @@
     <string name="pay_order">支付订单</string>
     <string name="cancel">取消</string>
     <string name="title_activity_order_detail">订单详情</string>
-    
+    <string name="logout">退出登录</string>
+
     <string name="Invite_friend_together">呼朋唤友一起骑行</string>
     <string name="No.bike">单车编号</string>
     <string name="No.bike.format">单车编号: %s</string>
@@ -42,7 +43,7 @@
     <string name="action.detail">明细</string>
     <string name="action_helps">使用帮助</string>
     <string name="action_need_help">需要帮助?</string>
-    
+
     <string name="action_sign_in">确定</string>
     <string name="action_sign_in_short">登录</string>
     <string name="add_bike_dialog_content">感谢您反馈当前位置无摩拜单车可用的问题，您的建议对于我们近期正在进行的增加运营区域的计划尤为重要。我们会尽快将运营地点覆盖到您建议的区域，请在微信中搜索并关注《摩拜单车》并留言</string>
@@ -134,7 +135,7 @@
     <string name="confirm">确认</string>
     <string name="confirm_logout_message">确定退出登录吗？</string>
     <string name="confirm_report_lock_issue">确认申报</string>
-    
+
     <string name="contact_us">联系我们</string>
     <string name="cost.default">0元</string>
     <string name="coupon_count">张</string>
@@ -187,7 +188,7 @@
     <string name="dialog_red_packet_msg">你获得一个摩拜现金红包</string>
     <string name="dialog_unlock_help_message">当您到达目的地之后请手动关锁，即可完成还车计费。</string>
     <string name="dialog_unlock_help_title">如何还车</string>
-    
+
     <string name="doing_login">登录中…</string>
     <string name="easter_bike_default_award">神秘大奖</string>
     <string name="easter_bike_ride_hint">骑行该彩蛋车%1$d小时内免费，有效骑行超过%2$d分钟就有机会抽取</string>
@@ -244,7 +245,7 @@
     <string name="get_verify_code">获取验证码</string>
     <string name="get_verify_code_again">重发验证码</string>
     <string name="get_verify_code_countdown_text">%d秒</string>
-    
+
     <string name="getting_verify_code">获取中…</string>
     <string name="got_it">知道了</string>
     <string name="got_trip_surprise">你已获得一个摩拜宝箱！</string>
@@ -281,9 +282,8 @@
     <string name="image_original_not_found">原图不存在</string>
     <string name="info_known_text">我知道了</string>
     <string name="input_bikecode_error">请输入车辆编码</string>
-    
-    
-    
+
+
     <string name="input_unlock">开锁</string>
     <string name="install_update">安装升级</string>
     <string name="invalid_campus_id">证件号有误</string>
@@ -336,7 +336,7 @@
     <string name="login_fail">登录失败，请稍后重试</string>
     <string name="login_hint">请验证手机</string>
     <string name="login_text">立即登录</string>
-    <string name="logout">退出登录</string>
+
     <string name="logout.not.hint">当前状态不能退出登录</string>
     <string name="market_good_job">喜欢，给五星好评</string>
     <string name="market_refuse">残忍拒绝</string>
@@ -349,7 +349,7 @@
     <string name="mobike_user_disclaimer_title">用车服务条款</string>
     <string name="mobike_user_manual">摩拜单车使用说明</string>
     <string name="my_coupon_title">我的优惠</string>
-    <string name="my_credit_title">我的信用</string> 
+    <string name="my_credit_title">我的信用</string>
     <string name="my_position">我的位置</string>
     <string name="my_red_pocket">我的红包</string>
     <string name="my_red_pocket_FAQ">常见问题</string>
@@ -610,9 +610,9 @@
     <string name="route_search_fail">抱歉，未找到路线</string>
     <string name="route_searching">路线规划中…</string>
     <string name="save">保存</string>
-    
+
     <string name="scan_qrcode_hint">对准车上的二维码</string>
-    
+
     <string name="search.hint">去哪找我</string>
     <string name="search.hint.address">输入常用地址</string>
     <string name="search_center_hint">找哪里附近的车</string>
@@ -624,7 +624,7 @@
     <string name="sent_verify_code_success">验证码已发送</string>
     <string name="service_area">开通区域</string>
     <string name="service_unavailable">抱歉，服务暂时不可用，请稍候再试</string>
-    
+
     <string name="share">分享到</string>
     <string name="share_code">您的专属邀请码为：%s</string>
     <string name="share_code_des">说明</string>
@@ -680,7 +680,7 @@
     <string name="tip_status_user_not_verify">您尚未进行实名验证，无法租车骑行</string>
     <string name="title_activity_action_search">搜索</string>
     <string name="title_activity_help_hint">提醒帮助页</string>
-    
+
     <string name="title_activity_pay">车费充值</string>
     <string name="title_activity_red_packet_amount_detail">摩拜红包</string>
     <string name="title_activity_ride_result">骑行结束页</string>

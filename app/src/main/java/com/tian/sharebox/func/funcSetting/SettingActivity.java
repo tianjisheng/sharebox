@@ -1,5 +1,9 @@
 package com.tian.sharebox.func.funcSetting;
 
+import android.view.View;
+
+import com.tian.sharebox.MyApplication;
+import com.tian.sharebox.R;
 import com.tian.sharebox.activity.BaseActivity;
 
 /**
@@ -13,6 +17,35 @@ public class SettingActivity extends BaseActivity
     @Override
     protected void setContent()
     {
-        mTextView.setText("用户设置界面待完成");
+         
+    }
+
+    @Override
+    protected int getTitleId()
+    {
+        return R.id.activity_setting_toolbar_title_text;
+    }
+
+    @Override
+    protected int getToolbarId()
+    {
+        return R.id.activity_setting_toolbar;
+    }
+
+    @Override
+    protected int getContentViewId()
+    {
+        return R.layout.activity_setting;
+    }
+
+    @Override
+    protected void initSelfLayout()
+    {
+        
+    }
+    
+    public void onClick(View view)
+    {
+        MyApplication.mApplication.clearToken();
     }
 }

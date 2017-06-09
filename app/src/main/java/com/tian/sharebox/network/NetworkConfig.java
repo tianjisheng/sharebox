@@ -65,6 +65,10 @@ public static final String baseUrl = "http://www.baidu.com";
      * 返回：state,msg
      */
     public static final String orderCancel = "order/cancel";
+    /**
+     * 支付订单
+     */
+    public static final String orderPay = "order/pay";
     
     public static String buildUrl(String... urls)
     {

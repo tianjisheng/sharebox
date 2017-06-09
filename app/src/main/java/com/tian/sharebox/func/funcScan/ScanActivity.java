@@ -1,9 +1,13 @@
 package com.tian.sharebox.func.funcScan;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -56,15 +60,23 @@ public class ScanActivity extends Activity implements QRCodeView.Delegate
         super.onStart();
         mQRCodeView.startCamera();
 //        mQRCodeView.startCamera(Camera.CameraInfo.CAMERA_FACING_FRONT);
-
         mQRCodeView.showScanRect();
     }
+
+    int requestCode = 1;
 
     @Override
     protected void onResume()
     {
         super.onResume();
-        mQRCodeView.startSpot();
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, requestCode);
+        } else
+        {
+            mQRCodeView.startSpot();
+        }
+
     }
 
     @Override
@@ -91,7 +103,7 @@ public class ScanActivity extends Activity implements QRCodeView.Delegate
     public void onScanQRCodeSuccess(String result)
     {
         LogUtil.i(TAG, "result:" + result);
-        ActivityRoute.dispatcherActivity(ActivityRoute.BorrowActivity,result);
+        ActivityRoute.dispatcherActivity(ActivityRoute.BorrowActivity, result);
         finish();
     }
 
@@ -108,15 +120,7 @@ public class ScanActivity extends Activity implements QRCodeView.Delegate
         switch (v.getId())
         {
             case R.id.flash_light_btn:
-                open = !open;
-                if (open)
-                {
-                    mQRCodeView.openFlashlight();
-                } else
-                {
-                    mQRCodeView.closeFlashlight();
-                }
-                v.setSelected(open);
+                flashLight();
                 break;
             case R.id.qrcode_input_btn:
                 Intent intent = new Intent(this, InputCodeActivity.class);
@@ -127,9 +131,40 @@ public class ScanActivity extends Activity implements QRCodeView.Delegate
         }
     }
 
+    private void flashLight()
+    {
+        open = !open;
+        if (open)
+        {
+            mQRCodeView.openFlashlight();
+        } else
+        {
+            mQRCodeView.closeFlashlight();
+        }
+        findViewById(R.id.flash_light_btn).setSelected(open);
+    }
+
     private void handleBack()
     {
         super.onBackPressed();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
+    {
+        if (requestCode == 1)
+        {
+            if (grantResults != null && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            {
+                mQRCodeView.startSpot();
+            }
+        } else if (requestCode == 2)
+        {
+            if (grantResults != null && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            {
+                flashLight();
+            }
+        }
     }
 
 }

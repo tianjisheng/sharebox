@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.tian.sharebox">
-  
+
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/> 
-    <uses-permission android:name="android.permission.GET_TASKS"/> 
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.FLASHLIGHT"/>
@@ -15,15 +15,15 @@
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 
     <application
         android:name=".MyApplication"
@@ -45,13 +45,13 @@
         </activity>
         <activity
             android:name=".func.funcScan.ScanActivity"
-            android:noHistory="true"
+            android:label="@string/scan_qrcode"
             android:launchMode="singleTask"
-            android:label="@string/scan_qrcode"/>
+            android:noHistory="true"/>
         <activity
             android:name=".func.funcScan.InputCodeActivity"
-            android:launchMode="singleTask"
-            android:label="@string/input_qrcode_unlock"/>
+            android:label="@string/input_qrcode_unlock"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".func.funcUser.UserCenterActivity"
             android:label="@string/user_center"/>
@@ -71,9 +71,11 @@
         <activity
             android:name=".func.funcLogin.LoginActivity"
             android:label="@string/title_activity_login"/>
-        <activity android:name=".func.funcDetailBox.BoxDetailActivity"
+        <activity
+            android:name=".func.funcDetailBox.BoxDetailActivity"
             android:label="@string/title_activity_box_detail"/>
-        <activity android:name=".func.funcDetailOrder.DetailOrderActivity"
+        <activity
+            android:name=".func.funcDetailOrder.DetailOrderActivity"
             android:label="@string/title_activity_order_detail"/>
 
         <service
@@ -81,6 +83,7 @@
             android:enabled="true"
             android:process=":remote">
         </service>
+
     </application>
 
 </manifest>
