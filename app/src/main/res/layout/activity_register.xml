@@ -9,14 +9,14 @@
                 android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/activity_login_toolbar"
+        android:id="@+id/activity_register_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:background="@color/user_info_color"
         app:popupTheme="@style/Theme.MyTheme.PopupOverlay">
 
         <TextView
-            android:id="@+id/activity_login_toolbar_title_text"
+            android:id="@+id/activity_register_toolbar_title_text"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/activity_login_toolbar"
+        android:layout_below="@id/activity_register_toolbar"
         android:background="@android:color/white"
         android:fillViewport="true"
         android:scrollbars="none">
@@ -51,7 +51,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/user_name_hint"
+                    android:id="@id/mobile_hint"
                     android:layout_width="@dimen/activity_login_item_title_width"
                     android:layout_height="wrap_content"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -61,54 +61,17 @@
                     android:visibility="visible"/>
 
                 <com.tian.sharebox.widget.ClearEditText
-                    android:id="@+id/user_name_number"
+                    android:id="@id/mobile_number"
                     android:layout_width="0.0dip"
                     android:layout_height="fill_parent"
                     android:layout_weight="1.0"
                     android:background="@android:color/transparent"
                     android:drawableRight="@drawable/clear_text"
                     android:hint="@string/prompt_input_mobile_number"
-                    android:inputType="phone"
+                    android:inputType="number"
                     android:maxLines="1"
                     android:padding="8.0dip"
-                    android:textColor="@color/main_text_color"
-                    android:textCursorDrawable="@null"
-                    android:textSize="13.0sp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="@dimen/activity_login_item_height"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="20.0dip"
-                android:background="@color/edit_text_background"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:id="@+id/password_layout"
-                android:visibility="visible">
-
-                <TextView
-                    android:id="@+id/password_hint"
-                    android:layout_width="@dimen/activity_login_item_title_width"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:text="@string/prompt_password_number"
-                    android:textColor="@android:color/black"
-                    android:textSize="13.0sp"
-                    android:visibility="visible"/>
-
-                <com.tian.sharebox.widget.ClearEditText
-                    android:id="@+id/password_number"
-                    android:layout_width="0.0dip"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1.0"
-                    android:background="@android:color/transparent"
-                    android:drawableRight="@drawable/clear_text"
-                    android:hint="@string/prompt_inout_password_number"
-                    android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:padding="8.0dip"
+                    android:singleLine="true"
                     android:textColor="@color/main_text_color"
                     android:textCursorDrawable="@null"
                     android:textSize="13.0sp"/>
@@ -122,9 +85,7 @@
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="@dimen/activity_login_vertical_margin"
                 android:background="@color/edit_text_background"
-                android:orientation="horizontal"
-                android:visibility="gone"
-                android:id="@+id/code_layout">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="@dimen/activity_login_item_title_width"
@@ -146,6 +107,7 @@
                     android:inputType="numberDecimal"
                     android:maxLines="1"
                     android:padding="8.0dip"
+                    android:singleLine="true"
                     android:textColor="@color/main_text_color"
                     android:textCursorDrawable="@null"
                     android:textSize="13.0sp"/>
@@ -171,6 +133,86 @@
                 android:textColor="@color/main_app_color"
                 android:textSize="12.0sp"
                 android:visibility="invisible"/>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/activity_login_item_height"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="20.0dip"
+                android:background="@color/edit_text_background"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/password_layout"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/password_hint"
+                    android:layout_width="@dimen/activity_login_item_title_width"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:text="@string/prompt_password_number"
+                    android:textColor="@android:color/black"
+                    android:textSize="13.0sp"
+                    android:visibility="visible"/>
+
+                <com.tian.sharebox.widget.ClearEditText
+                    android:id="@+id/password_number"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@android:color/transparent"
+                    android:drawableRight="@drawable/clear_text"
+                    android:hint="@string/prompt_inout_password_number"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:padding="8.0dip"
+                    android:singleLine="true"
+                    android:textColor="@color/main_text_color"
+                    android:textCursorDrawable="@null"
+                    android:textSize="13.0sp"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/activity_login_item_height"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="20.0dip"
+                android:background="@color/edit_text_background"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:id="@+id/nickname_layout"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/user_name_hint"
+                    android:layout_width="@dimen/activity_login_item_title_width"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:text="@string/prompt_user_name_number"
+                    android:textColor="@android:color/black"
+                    android:textSize="13.0sp"
+                    android:visibility="visible"/>
+
+                <com.tian.sharebox.widget.ClearEditText
+                    android:id="@+id/user_name_number"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@android:color/transparent"
+                    android:drawableRight="@drawable/clear_text"
+                    android:hint="@string/prompt_input_user_name_register"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="8.0dip"
+                    android:singleLine="true"
+                    android:textColor="@color/main_text_color"
+                    android:textCursorDrawable="@null"
+                    android:textSize="13.0sp"/>
+            </LinearLayout>
+
 
             <Button
                 android:id="@id/sign_in_button"
@@ -199,18 +241,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/register_disclaimer_text"
+                    android:text="@string/login_disclaimer_text"
                     android:textSize="12.0sp"/>
 
                 <TextView
                     android:id="@+id/disclaimer_title_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/login_disclaimer_title"
+                    android:text="@string/register_disclaimer_title"
                     android:textColor="@color/light_red_color"
-                    android:textSize="12.0sp"
-                    android:onClick="onClick"
-                    android:clickable="true"/>
+                    android:textSize="12.0sp"/>
             </LinearLayout>
 
             

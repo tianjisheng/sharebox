@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.tian.sharebox.R;
+import com.tian.sharebox.activity.ActivityRoute;
 import com.tian.sharebox.activity.BaseActivity;
 import com.tian.sharebox.widget.ClearEditText;
 import com.tian.sharebox.widget.LoadingToastView;
@@ -29,6 +30,8 @@ public class LoginActivity extends BaseActivity implements LoginContract.View
     private Button signInButton;
     private LoadingToastView loadingToastView = null;
     private LoginContract.Presenter presenter;
+    private ClearEditText passwordEditText;
+    private View code = null;
 
     @Override
     protected int getContentViewId()
@@ -66,6 +69,22 @@ public class LoginActivity extends BaseActivity implements LoginContract.View
     {
         super.initSelfLayout();
         presenter = new LoginPresenter(this);
+        code = findViewById(R.id.code_layout);
+        passwordEditText = (ClearEditText) findViewById(R.id.password_number);
+        passwordEditText.setOnTextChangeListener(new ClearEditText.OnTextChangeListener()
+        {
+            @Override
+            public void afterTextChange(Editable s)
+            {
+                if (s.toString().length()>0)
+                {
+                    signInButton.setEnabled(true);
+                }else
+                {
+                    signInButton.setEnabled(false);
+                }
+            }
+        });
         verifyCodeButton = (Button) findViewById(R.id.get_verify_code_btn);
         verifyCodeButton.setOnClickListener(new View.OnClickListener()
         {
@@ -82,57 +101,18 @@ public class LoginActivity extends BaseActivity implements LoginContract.View
             public void onClick(View v)
             {
                 hideIme();
-                presenter.login(numberEditText.getText().toString(), verifyCodeEditText.getText().toString());
+                presenter.login(numberEditText.getText().toString(), passwordEditText.getText().toString());
             }
         });
-        numberEditText = (ClearEditText) findViewById(R.id.mobile_number);
-
-        numberEditText.setOnTextChangeListener(new ClearEditText.OnTextChangeListener()
-        {
-            @Override
-            public void afterTextChange(Editable s)
-            {
-                if (s.toString().length() > 0)
-                {
-                    verifyCodeButton.setEnabled(true);
-                    signInButton.setEnabled(verifyCodeEditText.getText().length() > 0);
-                } else
-                {
-                    verifyCodeButton.setEnabled(false);
-                    signInButton.setEnabled(false);
-                }
-            }
-        });
+        numberEditText = (ClearEditText) findViewById(R.id.user_name_number);
         verifyCodeEditText = (EditText) findViewById(R.id.verify_code);
-        verifyCodeEditText.addTextChangedListener(new TextWatcher()
-        {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after)
-            {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count)
-            {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s)
-            {
-                signInButton.setEnabled(s.toString().length() > 0);
-            }
-        });
     }
 
     private void hideIme()
     {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (imm.isActive())
-        {
-            imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-        }
+        imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     @Override
@@ -142,13 +122,17 @@ public class LoginActivity extends BaseActivity implements LoginContract.View
     }
 
     @Override
-    public void showErrorToast(String error)
+    public void showErrorToast(final String error)
     {
-        if (Looper.myLooper() == null)
-        {
-            Looper.prepare();
-        }
-        ToastViewUtil.showToast(error);
+       runOnUiThread(new Runnable()
+       {
+           @Override
+           public void run()
+           {
+               ToastViewUtil.showToast(error);
+           }
+       });
+        
     }
 
     @Override
@@ -207,5 +191,10 @@ public class LoginActivity extends BaseActivity implements LoginContract.View
     public boolean isUIShown()
     {
         return isShown();
+    }
+
+    public void onClick(View view)
+    {
+        ActivityRoute.dispatcherActivity(ActivityRoute.RegisterActivity, "");
     }
 }

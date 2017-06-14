@@ -1,5 +1,12 @@
 package com.tian.sharebox.network;
 
+import java.util.ArrayDeque;
+import java.util.Comparator;
+import java.util.Deque;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeMap;
+
 /**
  * @author jisheng ,tianjisheng@skyworth.com
  * @date 2017/6/1
@@ -8,8 +15,8 @@ package com.tian.sharebox.network;
 
 public class NetworkConfig
 {
-//    public static final String baseUrl = "http://119.29.195.138:8000/greenbox";
-public static final String baseUrl = "http://www.baidu.com";
+    public static final String baseUrl = "http://119.29.195.138:8000/greenbox";
+//public static final String baseUrl = "http://www.baidu.com";
     /////////////////////////
     /**
      * 登陆,post,[username,password]
@@ -20,6 +27,10 @@ public static final String baseUrl = "http://www.baidu.com";
      * 退出登陆，暂不实现
      */
     public static final String logout = "user/logout";
+    /**
+     * 注册，暂不实现
+     */
+    public static final String register = "user/register";
     ////////////////////////////
     /**
      * 借物（全归还），post,[token,goods_sn]
@@ -69,15 +80,22 @@ public static final String baseUrl = "http://www.baidu.com";
      * 支付订单
      */
     public static final String orderPay = "order/pay";
-    
+
     public static String buildUrl(String... urls)
     {
         String res = "";
-        for (String url:urls)
+        for (String url : urls)
         {
             res += url;
         }
         return res;
     }
-    
+
+    public static void main(String[] args)
+    {
+       int a = 10_000;//java 1.7语法
+       System.out.println("a == "+a); 
+        
+    }
+
 }

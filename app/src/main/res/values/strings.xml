@@ -14,8 +14,9 @@
     <string name="input_correct_boxid">请确认您输入了正确的编码</string>
     <string name="scan_qrcode_unlock">扫码开锁</string>
     <string name="get_default_verify_code">验证码功能暂未实现，输入170527</string>
-    <string name="disclaimer_title">《服务条款》</string>
-    <string name="title_activity_login">手机验证</string>
+    <string name="login_disclaimer_title">去注册</string>
+    <string name="register_disclaimer_title">《服务条款》</string>
+    <string name="title_activity_login">登录</string>
     <string name="title_activity_box_detail">详情</string>
     <string name="activity_order_order_id">订单号:%1$s</string>
     <string name="activity_order_order_state">订单状态:%1$s</string>
@@ -32,6 +33,9 @@
     <string name="cancel">取消</string>
     <string name="title_activity_order_detail">订单详情</string>
     <string name="logout">退出登录</string>
+    <string name="register">注册</string>
+    <string name="register_disclaimer_text">无账号?    </string>
+    <string name="login_disclaimer_text">点击-确定，即表示已阅读并同意</string>
 
     <string name="Invite_friend_together">呼朋唤友一起骑行</string>
     <string name="No.bike">单车编号</string>
@@ -332,7 +336,7 @@
     <string name="lock_ring_hint">"拍摄无法关锁的锁环位置照片 
 将车号包含在内"</string>
     <string name="lock_ring_issue">锁环扣不住</string>
-    <string name="login_disclaimer_text">点击-确定，即表示已阅读并同意</string>
+    
     <string name="login_fail">登录失败，请稍后重试</string>
     <string name="login_hint">请验证手机</string>
     <string name="login_text">立即登录</string>
@@ -539,7 +543,7 @@
     <string name="refund_with_negative_deposit">您已欠费，不能退押金</string>
     <string name="register.over">已认证</string>
     <string name="register_and_account">注册与账户</string>
-    <string name="register_and_login">注册与登录</string>
+    
     <string name="register_failed">未认证</string>
     <string name="register_progress_idcard_verify">实名认证</string>
     <string name="register_progress_mobile_verify">手机绑定</string>
@@ -820,4 +824,9 @@
     <string name="box_name">名称:</string>
     <string name="box_address">地址:</string>
     <string name="borrow_confirm">点击租借</string>
+    <string name="prompt_password_number">密码</string>
+    <string name="prompt_inout_password_number">请输入密码</string>
+    <string name="prompt_user_name_number">用户名</string>
+    <string name="prompt_input_user_name_register">请输入用户名</string>
+    <string name="prompt_input_user_name_login">请输入用户名</string>
 </resources>

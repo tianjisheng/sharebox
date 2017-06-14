@@ -1,7 +1,7 @@
-package com.tian.sharebox.func.funcLogin;
+package com.tian.sharebox.func.funcRegister;
 
-import com.tian.sharebox.view.BaseView;
 import com.tian.sharebox.presenter.BasePresenter;
+import com.tian.sharebox.view.BaseView;
 
 /**
  * @author jisheng ,tianjisheng@skyworth.com
@@ -9,18 +9,18 @@ import com.tian.sharebox.presenter.BasePresenter;
  * @describe
  */
 
-public interface LoginContract
+public interface RegisterContract
 {
     interface View extends BaseView
     {
         void showVerifyCode();
         void showErrorToast(String error);
-        void loginSuccess();
+        void registerSuccess();
     }
     
     interface Presenter extends BasePresenter
     {
         void getVerificationCode(String number);
-        void login(String number,String password);
+        void register(String number, String password,String userName);
     }
 }

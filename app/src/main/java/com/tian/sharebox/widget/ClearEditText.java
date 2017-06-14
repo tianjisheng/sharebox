@@ -111,8 +111,10 @@ public class ClearEditText extends AppCompatEditText implements View.OnFocusChan
     @Override
     public void afterTextChanged(Editable s)
     {
-        Log.i("aa","afterTextChanged:"+s.toString());
-        onTextChangeListener.afterTextChange(s);
+        if (onTextChangeListener!=null)
+        {
+            onTextChangeListener.afterTextChange(s);
+        }
     }
 
     @Override

@@ -42,8 +42,8 @@ public abstract class ShareBoxCallback implements Callback
         e.printStackTrace();
         if (e.getMessage().contains("Cancel"))
         {
-            handleCancelCall(call,e);
-        }else
+            handleCancelCall(call, e);
+        } else
         {
             handleCallbackFailure(call, e);
         }
@@ -72,17 +72,17 @@ public abstract class ShareBoxCallback implements Callback
                     handleResultFailure(call);
                     break;
                 }
-                LogUtil.i("call", call.request().toString(), "response", res);
+//                LogUtil.i("call", call.request().toString(), "response", res);
                 JSONObject json = null;
                 try
                 {
                     json = JSONObject.parseObject(res);
-                }catch (JSONException e)
+                } catch (JSONException e)
                 {
                     json = null;
                     e.printStackTrace();
                 }
-                        
+
                 if (json == null)
                 {
                     handleResultFailure(call);
@@ -100,13 +100,17 @@ public abstract class ShareBoxCallback implements Callback
 
             }
         }
+        if (response != null)
+        {
+            response.close();
+        }
     }
 
     public abstract void handleCallbackFailure(Call call, IOException e);
 
     protected void handleResultFailure(Call call)
     {
-        handleCallbackFailure(call,null);
+        handleCallbackFailure(call, null);
     }
 
     protected void handleResultSuccess(Call call, JSONObject Json)
@@ -118,10 +122,10 @@ public abstract class ShareBoxCallback implements Callback
     {
 
     }
-    
-    protected void handleCancelCall(Call call,IOException e)
+
+    protected void handleCancelCall(Call call, IOException e)
     {
-        
+
     }
 
 }

@@ -86,7 +86,7 @@ public class UserCenterActivity extends Activity
             }
             groupDivide = 0;
             viewUserItemConfigHashMap.put(view, userItemConfig);
-            
+
             last = temp;
         }
         configs.clear();
@@ -161,6 +161,6 @@ public class UserCenterActivity extends Activity
 
     public void onItemClick(View view)
     {
-        ActivityRoute.dispatcherActivity(viewUserItemConfigHashMap.get(view).toWhere,"");
+        ActivityRoute.dispatcherActivity(viewUserItemConfigHashMap.get(view).toWhere, "");
     }
 }

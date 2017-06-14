@@ -82,7 +82,7 @@ public class MessageActivity extends BaseActivity implements SwipyRefreshLayout.
                 Log.i("aa", "onLongClick:"+mViewStub.getVisibility());
             }
         });
-        initData();
+//        initData();
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.my_messages_listview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));
         recyclerView.setAdapter(adapter);

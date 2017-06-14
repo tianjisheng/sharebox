@@ -22,8 +22,7 @@ public class UserActivityConfig
             .itemIndex(1)
             .itemId("message")
             .itemTitle("消息")
-            .summaryTitle("有促销")
-            .hasRed(true)
+            .summaryTitle("暂无消息")
             .toWhere(ActivityRoute.MessageActivity);
 
     public static UserItemConfig settingItem = new UserItemConfig()
@@ -31,7 +30,7 @@ public class UserActivityConfig
             .itemIndex(0)
             .itemId("setting")
             .itemTitle("设置")
-            .summaryTitle("可以看看")
+            .summaryTitle("")
             .toWhere(ActivityRoute.SettingActivity);
 
 }

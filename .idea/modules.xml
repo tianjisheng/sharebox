@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/persistence/persistence.iml" filepath="$PROJECT_DIR$/persistence/persistence.iml" />
       <module fileurl="file://$PROJECT_DIR$/sharebox.iml" filepath="$PROJECT_DIR$/sharebox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testleakcanary/testleakcanary.iml" filepath="$PROJECT_DIR$/testleakcanary/testleakcanary.iml" />
     </modules>
   </component>
 </project>

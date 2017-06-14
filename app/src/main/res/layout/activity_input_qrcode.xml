@@ -45,7 +45,6 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="59dp"
                 android:ems="10"
-                android:inputType="number"
                 android:textColor="@android:color/white"
                 android:textColorLink="?attr/actionMenuTextColor"
                 android:textCursorDrawable="@color/E6E6"/>

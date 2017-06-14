@@ -36,7 +36,9 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="W8NkUnXuCacS3xPXmfMOxl4PS5DAO3fp"/>
 
-        <activity android:name=".func.funcMap.MainActivity">
+        <activity
+            android:name=".func.funcMap.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -77,6 +79,9 @@
         <activity
             android:name=".func.funcDetailOrder.DetailOrderActivity"
             android:label="@string/title_activity_order_detail"/>
+        <activity
+            android:name=".func.funcRegister.RegisterActivity"
+            android:label="@string/register"/>
 
         <service
             android:name="com.baidu.location.f"

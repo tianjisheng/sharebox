@@ -12,6 +12,7 @@ import com.tian.sharebox.func.funcLogin.LoginActivity;
 import com.tian.sharebox.func.funcMessage.MessageActivity;
 import com.tian.sharebox.func.funcMessage.MessageDetailActivity;
 import com.tian.sharebox.func.funcOrder.OrderActivity;
+import com.tian.sharebox.func.funcRegister.RegisterActivity;
 import com.tian.sharebox.func.funcScan.InputCodeActivity;
 import com.tian.sharebox.func.funcScan.ScanActivity;
 import com.tian.sharebox.func.funcSetting.SettingActivity;
@@ -32,6 +33,7 @@ public class ActivityRoute
     public static final String UserCenterActivity = "activity/UserCenterActivity";
     public static final String SettingActivity = "activity/UserSettingActivity";
     public static final String MessageActivity = "activity/MessageActivity";
+    public static final String RegisterActivity = "activity/RegisterActivity";
     public static final String LoginActivity = "activity/LoginActivity";
     public static final String OrderActivity = "activity/OrderActivity";
     public static final String DetailOrderActivity = "activity/DetailOrderActivity";
@@ -46,6 +48,7 @@ public class ActivityRoute
         activityMap.put(UserCenterActivity, UserCenterActivity.class);
         activityMap.put(SettingActivity, SettingActivity.class);
         activityMap.put(MessageActivity, MessageActivity.class);
+        activityMap.put(RegisterActivity, RegisterActivity.class);
         activityMap.put(LoginActivity, LoginActivity.class);
         activityMap.put(OrderActivity, OrderActivity.class);
         activityMap.put(DetailOrderActivity, DetailOrderActivity.class);

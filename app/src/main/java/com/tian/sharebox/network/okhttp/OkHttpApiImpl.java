@@ -2,21 +2,26 @@ package com.tian.sharebox.network.okhttp;
 
 import com.alibaba.fastjson.JSONObject;
 import com.tian.sharebox.network.okhttp.callback.ShareBoxCallback;
+import com.tian.sharebox.utils.LogUtil;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
+import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 /**
  * @author jisheng ,tianjisheng@skyworth.com
@@ -43,7 +48,27 @@ public class OkHttpApiImpl
 
     private OkHttpApiImpl()
     {
-        okHttpClient = new OkHttpClient();
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        builder.addNetworkInterceptor(new Interceptor()
+        {
+            @Override
+            public Response intercept(Chain chain) throws IOException
+            {
+                long t1 = System.nanoTime();
+                Request request = chain.request();
+                LogUtil.i(String.format("request %s %s%n%s",request.url(),request.headers(),chain.connection()));
+                Response response = chain.proceed(request);
+                MediaType type = response.body().contentType();
+                String content = response.body().string();
+                long t2 = System.nanoTime();
+                LogUtil.i(String.format("receive %s %.1fms%n%s%s",request.url(),(t2-t1)/1e6d,response.headers(),content));
+                response.close();
+                return response.newBuilder()
+                        .body(ResponseBody.create(type,content))
+                        .build();
+            }
+        });
+        okHttpClient = builder.build();
     }
 
     /**

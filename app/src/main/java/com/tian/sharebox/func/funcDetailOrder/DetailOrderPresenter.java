@@ -33,21 +33,23 @@ public class DetailOrderPresenter implements DetailOrderContract.Presenter
     {
         view.showLoading();
         try
-        {
+        {// 
             OkHttpApiImpl.getInstance().getString(buildUrl(baseUrl, "/", orderDetail,
-                    "/", token, "/", orderId), new ShareBoxCallback()
+                    "/",orderId), new ShareBoxCallback()
             {
                 @Override
                 protected void handleResultSuccess(Call call, JSONObject Json)
                 {
                     OrderDetailData data = new OrderDetailData();
                     data.setOrderId(orderId);
+                    data.setStartTime(Json.getString("start_time"));
+                    data.setEndTime(Json.getString("finish_time"));
                     data.setGoodsName(Json.getString("goods_category"));
                     data.setStateCode(Json.getIntValue("order_state"));
                     data.setDistance(Json.getFloatValue("distance"));
                     data.setCost(Json.getFloatValue("cost"));
-                    data.setBorrowContainerId(Json.getString("borrow_container_id"));
-                    data.setReturnContainerId(Json.getString("return_container_id"));
+                    data.setBorrowContainerId(Json.getString("borrow_lock_id"));
+                    data.setReturnContainerId(Json.getString("return_lock_id"));
                     view.refreshUI(data);
                     view.hideLoading();
                 }
@@ -88,6 +90,7 @@ public class DetailOrderPresenter implements DetailOrderContract.Presenter
             HashMap<String, String> param = new HashMap<>();
             param.put("token", token);
             param.put("order_sn", orderId);
+            param.put("msg","");
             OkHttpApiImpl.getInstance().postString(buildUrl(baseUrl, "/", orderCancel), new ShareBoxCallback()
             {
                 @Override

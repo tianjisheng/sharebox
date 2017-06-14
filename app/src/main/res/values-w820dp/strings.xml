@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="box_name">名称</string>
-    <string name="box_address">地址</string>
-    <string name="borrow_confirm">点击租借</string>
 </resources>

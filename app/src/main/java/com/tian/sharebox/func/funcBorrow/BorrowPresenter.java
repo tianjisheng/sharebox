@@ -38,6 +38,7 @@ public class BorrowPresenter implements BorrowContract.Presenter
     {
         if (input != null)
         {
+            goodsSn = input;
             view.updateIcon(1, "获取信息成功");
         } else
         {
@@ -63,7 +64,7 @@ public class BorrowPresenter implements BorrowContract.Presenter
             view.showLoading();
             HashMap<String, String> param = new HashMap<>();
             param.put("token", token);
-            param.put("goods_sn", goodsSn);
+            param.put("lock_id", goodsSn);
             OkHttpApiImpl.getInstance().postString(buildUrl(baseUrl, "/", add), new ShareBoxCallback()
             {
                 @Override
