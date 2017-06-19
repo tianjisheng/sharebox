@@ -67,7 +67,7 @@ public class MessageActivity extends BaseActivity implements SwipyRefreshLayout.
             public void onClick(MessageData data)
             {
                 Log.i("aa", "onClick:" + data.getMessageTitle());
-                ActivityRoute.dispatcherActivity("activity/MessageDetailActivity","");
+                ActivityRoute.dispatcherActivity(ActivityRoute.MessageActivity,ActivityRoute.MessageDetailActivity,"");
             }
 
             @Override

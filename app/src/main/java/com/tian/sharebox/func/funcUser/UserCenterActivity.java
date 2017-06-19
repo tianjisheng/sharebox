@@ -161,6 +161,6 @@ public class UserCenterActivity extends Activity
 
     public void onItemClick(View view)
     {
-        ActivityRoute.dispatcherActivity(viewUserItemConfigHashMap.get(view).toWhere, "");
+        ActivityRoute.dispatcherActivity(ActivityRoute.UserCenterActivity,viewUserItemConfigHashMap.get(view).toWhere, "");
     }
 }

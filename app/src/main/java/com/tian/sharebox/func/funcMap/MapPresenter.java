@@ -26,6 +26,7 @@ import com.tian.sharebox.MyApplication;
 import com.tian.sharebox.R;
 import com.tian.sharebox.activity.ActivityRoute;
 import com.tian.sharebox.data.BoxData;
+import com.tian.sharebox.data.CategoryData;
 import com.tian.sharebox.network.okhttp.OkHttpApiImpl;
 import com.tian.sharebox.network.okhttp.callback.ShareBoxCallback;
 import com.tian.sharebox.utils.CheckNonNullUtil;
@@ -38,6 +39,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import okhttp3.Call;
+import okhttp3.Response;
 
 /**
  * @author jisheng ,tianjisheng@skyworth.com
@@ -68,8 +70,6 @@ public class MapPresenter implements MapContract.Presenter, BaiduMap.OnMapStatus
     @Override
     public boolean onResume()
     {
-        locationCurrent();
-
         return true;
     }
 
@@ -79,7 +79,7 @@ public class MapPresenter implements MapContract.Presenter, BaiduMap.OnMapStatus
         view.getMap().removeMarkerClickListener(this);
         view.getMap().clear();
         markers.clear();
-        if (mlo!=null && listener !=null)
+        if (mlo != null && listener != null)
         {
             mlo.unRegisterLocationListener(listener);
         }
@@ -166,10 +166,112 @@ public class MapPresenter implements MapContract.Presenter, BaiduMap.OnMapStatus
                 protected void handleResultSuccess(Call call, JSONObject Json)
                 {
                     JSONArray data = Json.getJSONArray("data");
-                    if (data!=null && data.size()>0)
+                    if (data != null && data.size() > 0)
                     {
                         ArrayList<BoxData> list = new ArrayList<BoxData>();
-                        for (Object object:data)
+                        for (Object object : data)
+                        {
+                            JSONObject o = (JSONObject) object;
+                            BoxData box = new BoxData();
+                            box.setContainerId(o.getString("container_id"));
+                            box.setName(o.getString("name"));
+                            box.setAddress(o.getString("address"));
+                            box.setLatitude(o.getDouble("latitude"));
+                            box.setLongitude(o.getDouble("longitude"));
+                            list.add(box);
+                        }
+                        drawMarkers(list);
+                    }
+                    view.hideLoading();
+                }
+
+                @Override
+                protected void handleResultFailure(Call call)
+                {
+                    BoxData data1 = new BoxData();
+                    data1.setName("data1");
+                    data1.setLatitude(22.646461);
+                    data1.setLongitude(113.927319);
+
+                    BoxData data2 = new BoxData();
+                    data2.setName("data2");
+                    data2.setLatitude(22.646461);
+                    data2.setLongitude(113.927419);
+
+                    BoxData data3 = new BoxData();
+                    data3.setName("data3");
+                    data3.setLatitude(22.646461);
+                    data3.setLongitude(113.927519);
+
+                    BoxData data4 = new BoxData();
+                    data4.setName("data4");
+                    data4.setLatitude(22.646461);
+                    data4.setLongitude(113.927619);
+
+                    BoxData data5 = new BoxData();
+                    data5.setName("data5");
+                    data5.setLatitude(22.647461);
+                    data5.setLongitude(113.927619);
+
+                    BoxData data6 = new BoxData();
+                    data6.setName("data6");
+                    data6.setLatitude(22.645461);
+                    data6.setLongitude(113.927619);
+
+                    ArrayList<BoxData> list = new ArrayList<BoxData>();
+                    list.add(data1);
+                    list.add(data2);
+                    list.add(data3);
+                    list.add(data4);
+                    list.add(data5);
+                    list.add(data6);
+                    drawMarkers(list);
+                    view.hideLoading();
+                }
+
+                @Override
+                public void handleCallbackFailure(Call call, IOException e)
+                {
+                    view.hideLoading();
+                    LogUtil.i("onFailure:", e.getMessage());
+                }
+            }, param);
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    @Override
+    public boolean refreshNearbyGoods(String categoryId, LatLng latLng)
+    {
+        if (latLng == null)
+        {
+            latLng = targetLatlng;
+            if (latLng == null)
+            {
+                return false;
+            }
+        }
+        try
+        {
+            view.showLoading();
+            HashMap<String, String> param = new HashMap<String, String>();
+            param.put("category", categoryId);
+            param.put("latitude", "" + latLng.latitude);
+            param.put("longitude", "" + latLng.longitude);
+            param.put("radius", "500");
+            OkHttpApiImpl.getInstance().postString(buildUrl(baseUrl, "/", goodsNearby), new ShareBoxCallback()
+            {
+                @Override
+                protected void handleResultSuccess(Call call, JSONObject Json)
+                {
+                    JSONArray data = Json.getJSONArray("goods_list");
+                    if (data != null && data.size() > 0)
+                    {
+                        ArrayList<BoxData> list = new ArrayList<BoxData>();
+                        for (Object object : data)
                         {
                             JSONObject o = (JSONObject) object;
                             BoxData box = new BoxData();
@@ -297,7 +399,7 @@ public class MapPresenter implements MapContract.Presenter, BaiduMap.OnMapStatus
     private LatLng targetLatlng = null;
 
     @Override
-    public boolean locationCurrent()
+    public boolean locationCurrent(final String category)
     {
         view.showLoading();
         if (listener == null)
@@ -314,7 +416,14 @@ public class MapPresenter implements MapContract.Presenter, BaiduMap.OnMapStatus
                     view.getMap().animateMapStatus(update);
                     drawCircle(latLng);
                     view.hideLoading();
-                    refreshNearbyContainer(targetLatlng);
+                    if (category == null || category.equals(""))
+                    {
+                        refreshNearbyContainer(targetLatlng);
+                    } else
+                    {
+                        refreshNearbyGoods(category, targetLatlng);
+                    }
+
                 }
 
                 @Override
@@ -327,6 +436,51 @@ public class MapPresenter implements MapContract.Presenter, BaiduMap.OnMapStatus
 
         getCurrentLocation();
         return true;
+    }
+
+    @Override
+    public void pullCategorys()
+    {
+        try
+        {
+            view.showLoading();
+            OkHttpApiImpl.getInstance().getString(buildUrl(baseUrl, "/", goodsCategory), new ShareBoxCallback()
+            {
+                @Override
+                public void handleCallbackFailure(Call call, IOException e)
+                {
+                    view.hideLoading();
+                }
+
+                @Override
+                protected void handleResultSuccess(Call call, JSONObject Json)
+                {
+                    JSONArray jsonArray = Json.getJSONArray("goods_list");
+                    ArrayList<CategoryData> list = new ArrayList<CategoryData>();
+                    CategoryData allData = new CategoryData();
+                    allData.setCategoryId("all");
+                    allData.setCategoryName("全部");
+                    allData.setIconPath("");
+                    allData.setCategoryCharging("");
+                    list.add(allData);
+                    for (Object jsonObject : jsonArray)
+                    {
+                        JSONObject o = (JSONObject) jsonObject;
+                        CategoryData data = new CategoryData();
+                        data.setCategoryId(o.getString("category_id"));
+                        data.setCategoryName(o.getString("name"));
+                        data.setIconPath(o.getString("goods_img"));
+                        data.setCategoryCharging(o.getString("charging"));
+                        list.add(data);
+                    }
+                    view.refreshCategory(list);
+                    view.hideLoading();
+                }
+            });
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 
 
@@ -354,7 +508,7 @@ public class MapPresenter implements MapContract.Presenter, BaiduMap.OnMapStatus
     public boolean onMarkerClick(Marker marker)
     {
         LogUtil.i("onMarkerClick");
-        ActivityRoute.dispatcherActivity(ActivityRoute.BoxDetailActivity, marker.getExtraInfo());
+        ActivityRoute.dispatcherActivity(ActivityRoute.MapActivity, ActivityRoute.BoxDetailActivity, marker.getExtraInfo());
         return true;
     }
 }

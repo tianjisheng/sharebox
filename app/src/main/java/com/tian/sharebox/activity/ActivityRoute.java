@@ -8,7 +8,9 @@ import com.tian.sharebox.MyApplication;
 import com.tian.sharebox.func.funcBorrow.BorrowActivity;
 import com.tian.sharebox.func.funcDetailBox.BoxDetailActivity;
 import com.tian.sharebox.func.funcDetailOrder.DetailOrderActivity;
+import com.tian.sharebox.func.funcGoodsDetail.DetailGoodsActivity;
 import com.tian.sharebox.func.funcLogin.LoginActivity;
+import com.tian.sharebox.func.funcMap.MainActivity;
 import com.tian.sharebox.func.funcMessage.MessageActivity;
 import com.tian.sharebox.func.funcMessage.MessageDetailActivity;
 import com.tian.sharebox.func.funcOrder.OrderActivity;
@@ -37,11 +39,13 @@ public class ActivityRoute
     public static final String LoginActivity = "activity/LoginActivity";
     public static final String OrderActivity = "activity/OrderActivity";
     public static final String DetailOrderActivity = "activity/DetailOrderActivity";
+    public static final String DetailGoodsActivity = "activity/DetailGoodsActivity";
     public static final String BorrowActivity = "activity/UserBorrowActivity";
     public static final String MessageDetailActivity = "activity/MessageDetailActivity";
     public static final String ScanActivity = "activity/ScanActivity";
     public static final String InputCodeActivity = "activity/InputCodeActivity";
     public static final String BoxDetailActivity = "activity/BoxDetailActivity";
+    public static final String MapActivity = "activity/MainActivity";
 
     static
     {
@@ -52,29 +56,34 @@ public class ActivityRoute
         activityMap.put(LoginActivity, LoginActivity.class);
         activityMap.put(OrderActivity, OrderActivity.class);
         activityMap.put(DetailOrderActivity, DetailOrderActivity.class);
+        activityMap.put(DetailGoodsActivity, DetailGoodsActivity.class);
         activityMap.put(BorrowActivity, BorrowActivity.class);
         activityMap.put(MessageDetailActivity, MessageDetailActivity.class);
         activityMap.put(ScanActivity, ScanActivity.class);
         activityMap.put(InputCodeActivity, InputCodeActivity.class);
         activityMap.put(BoxDetailActivity, BoxDetailActivity.class);
+        activityMap.put(MapActivity, MainActivity.class);
     }
 
+    public static final String FromActivity = "from";
     public static final String ParamJsonKey = "activity_param_string";
 
-    public static void dispatcherActivity(String activity, String paramJson)
+    public static void dispatcherActivity(String fromActivity, String activity, String paramJson)
     {
         Intent intent = new Intent(MyApplication.mApplication, activityMap.get(activity));
         intent.putExtra(ParamJsonKey, paramJson);
+        intent.putExtra(FromActivity, fromActivity);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         MyApplication.mApplication.startActivity(intent);
     }
 
     public static final String ParamBundleKey = "activity_param_bundle";
 
-    public static void dispatcherActivity(String activity, Bundle paramBundle)
+    public static void dispatcherActivity(String fromActivity, String activity, Bundle paramBundle)
     {
         Intent intent = new Intent(MyApplication.mApplication, activityMap.get(activity));
         intent.putExtra(ParamBundleKey, paramBundle);
+        intent.putExtra(FromActivity, fromActivity);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         MyApplication.mApplication.startActivity(intent);
     }

@@ -70,7 +70,7 @@ public class OrderActivity extends BaseActivity implements OrderContract.View, S
             @Override
             public void onClick(OrderData data)
             {
-                ActivityRoute.dispatcherActivity(ActivityRoute.DetailOrderActivity,data.getOrderId());
+                ActivityRoute.dispatcherActivity(ActivityRoute.OrderActivity,ActivityRoute.DetailOrderActivity,data.getOrderId());
             }
         });
 

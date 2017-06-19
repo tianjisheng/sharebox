@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-     
+
     <color name="navigationBarColor">#f46444</color>
     <color name="colorPrimaryDarkTrans">#CCf57257</color>
 
@@ -28,8 +28,10 @@
     <color name="black">#ff000000</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
-    <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
-    <color name="bright_foreground_inverse_material_light">@color/bright_foreground_material_dark</color>
+    <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light
+    </color>
+    <color name="bright_foreground_inverse_material_light">@color/bright_foreground_material_dark
+    </color>
     <color name="bright_foreground_material_dark">@android:color/white</color>
     <color name="bright_foreground_material_light">@android:color/black</color>
     <color name="bt_black">#ff001129</color>
@@ -239,4 +241,6 @@
     <color name="viewfinder_mask">#b0000000</color>
     <color name="walk_route_color">#ff1897e8</color>
     <color name="wallet_balance_text">#fff6fafd</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

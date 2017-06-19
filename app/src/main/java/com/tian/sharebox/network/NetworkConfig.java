@@ -48,6 +48,10 @@ public class NetworkConfig
      * 返回：state，msg,category,borrowed_times
      */
     public static final String goodsDetail = "goods/detail";
+    /**
+     * 查看物品分类，get,
+     */
+    public static final String goodsCategory = "goods/category";
     //////////////////////////
     /**
      * 查询附近储物柜,post,[latitude,longitude,range]

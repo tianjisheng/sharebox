@@ -10,10 +10,13 @@ import com.tian.sharebox.R;
 import com.tian.sharebox.activity.ActivityRoute;
 import com.tian.sharebox.activity.BaseActivity;
 import com.tian.sharebox.data.BoxData;
+import com.tian.sharebox.data.AvailableGoodsData;
 import com.tian.sharebox.data.CategoryData;
+import com.tian.sharebox.func.funcMap.CategoryCallback;
 import com.tian.sharebox.widget.LoadingToastView;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * @author jisheng ,tianjisheng@skyworth.com
@@ -66,6 +69,14 @@ public class BoxDetailActivity extends BaseActivity implements DetailContract.Vi
         recyclerView = (RecyclerView) findViewById(R.id.activity_box_detail_category);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         adapter = new CategoryAdapter(getApplicationContext());
+        adapter.setListener(new CategoryCallback()
+        {
+            @Override
+            public void onClick(Object data)
+            {
+                ActivityRoute.dispatcherActivity(ActivityRoute.DetailOrderActivity,ActivityRoute.DetailGoodsActivity,((AvailableGoodsData)data).getCategoryId());
+            }
+        });
         if (!parseParams())
         {
             initTestData();
@@ -120,34 +131,34 @@ public class BoxDetailActivity extends BaseActivity implements DetailContract.Vi
 
     private void initTestData()
     {
-        ArrayList<CategoryData> list = new ArrayList<>();
-        CategoryData data0 = new CategoryData();
+        ArrayList<AvailableGoodsData> list = new ArrayList<>();
+        AvailableGoodsData data0 = new AvailableGoodsData();
         data0.setTitle("名称");
         data0.setAvailableTotal("当前可用数");
         list.add(data0);
 
 
-        CategoryData data1 = new CategoryData();
+        AvailableGoodsData data1 = new AvailableGoodsData();
         data1.setTitle("单车");
         data1.setAvailableTotal(23);
         list.add(data1);
 
-        CategoryData data2 = new CategoryData();
+        AvailableGoodsData data2 = new AvailableGoodsData();
         data2.setTitle("飞行器");
         data2.setAvailableTotal(12);
         list.add(data2);
 
-        CategoryData data3 = new CategoryData();
+        AvailableGoodsData data3 = new AvailableGoodsData();
         data3.setTitle("手机");
         data3.setAvailableTotal(99);
         list.add(data3);
 
-        CategoryData data4 = new CategoryData();
+        AvailableGoodsData data4 = new AvailableGoodsData();
         data4.setTitle("充电宝");
         data4.setAvailableTotal(3);
         list.add(data4);
 
-        CategoryData data5 = new CategoryData();
+        AvailableGoodsData data5 = new AvailableGoodsData();
         data5.setTitle("雨伞");
         data5.setAvailableTotal(213);
         list.add(data5);
@@ -185,7 +196,7 @@ public class BoxDetailActivity extends BaseActivity implements DetailContract.Vi
     }
 
     @Override
-    public void refreshUI(final ArrayList<CategoryData> list)
+    public void refreshUI(final ArrayList<AvailableGoodsData> list)
     {
         runOnUiThread(new Runnable()
         {

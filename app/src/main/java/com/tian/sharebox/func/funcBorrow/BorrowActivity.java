@@ -56,7 +56,7 @@ public class BorrowActivity extends BaseActivity implements BorrowContract.View
     @Override
     protected void initSelfLayout()
     {
-        presenter = new BorrowPresenter(this); 
+        presenter = new BorrowPresenter(this);
         loadImg = (ImageView) findViewById(R.id.activity_borrow_load_img);
         loadText = (TextView) findViewById(R.id.activity_borrow_title);
         confirmBtn = (Button) findViewById(R.id.activity_borrow_btn);
@@ -74,14 +74,13 @@ public class BorrowActivity extends BaseActivity implements BorrowContract.View
     {
         if (currentState == 0)
         {
-            ActivityRoute.dispatcherActivity(ActivityRoute.InputCodeActivity, "");
             finish();
         } else if (currentState == 1)
         {
             presenter.borrow(MyApplication.mApplication.getToken(), ((BorrowPresenter) presenter).getGoodsSn());
         } else if (currentState == 2)
         {
-            ActivityRoute.dispatcherActivity(ActivityRoute.DetailOrderActivity, ((BorrowPresenter) presenter).getOrderId());
+            ActivityRoute.dispatcherActivity(ActivityRoute.BorrowActivity, ActivityRoute.DetailOrderActivity, ((BorrowPresenter) presenter).getOrderId());
             finish();
         } else if (currentState == 3)
         {

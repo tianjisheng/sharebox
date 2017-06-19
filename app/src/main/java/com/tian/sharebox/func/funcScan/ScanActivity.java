@@ -103,7 +103,7 @@ public class ScanActivity extends Activity implements QRCodeView.Delegate
     public void onScanQRCodeSuccess(String result)
     {
         LogUtil.i(TAG, "result:" + result);
-        ActivityRoute.dispatcherActivity(ActivityRoute.BorrowActivity, result);
+        ActivityRoute.dispatcherActivity(ActivityRoute.ScanActivity,ActivityRoute.BorrowActivity, result);
         finish();
     }
 

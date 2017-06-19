@@ -44,12 +44,12 @@ public class DetailOrderPresenter implements DetailOrderContract.Presenter
                     data.setOrderId(orderId);
                     data.setStartTime(Json.getString("start_time"));
                     data.setEndTime(Json.getString("finish_time"));
-                    data.setGoodsName(Json.getString("goods_category"));
+                    data.setGoodsName(Json.getString("goods_name"));
                     data.setStateCode(Json.getIntValue("order_state"));
                     data.setDistance(Json.getFloatValue("distance"));
                     data.setCost(Json.getFloatValue("cost"));
-                    data.setBorrowContainerId(Json.getString("borrow_lock_id"));
-                    data.setReturnContainerId(Json.getString("return_lock_id"));
+                    data.setBorrowContainerId(Json.getString("borrow_container"));
+                    data.setReturnContainerId(Json.getString("return_container"));
                     view.refreshUI(data);
                     view.hideLoading();
                 }

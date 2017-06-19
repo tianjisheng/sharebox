@@ -85,7 +85,7 @@ public class InputCodeActivity extends Activity
             if (!loadingToastView.isShown())
             {
                 //开启解锁
-                ActivityRoute.dispatcherActivity(ActivityRoute.BorrowActivity,inputCodeEdit.getText().toString());
+                ActivityRoute.dispatcherActivity(ActivityRoute.InputCodeActivity,ActivityRoute.BorrowActivity,inputCodeEdit.getText().toString());
                 finish();
             } else
             {

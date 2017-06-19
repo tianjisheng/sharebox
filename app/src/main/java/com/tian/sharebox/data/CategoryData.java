@@ -1,87 +1,55 @@
 package com.tian.sharebox.data;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 /**
  * @author jisheng ,tianjisheng@skyworth.com
- * @date 2017/6/5
+ * @date 2017/6/19
  * @describe
  */
 
-public class CategoryData implements Parcelable
+public class CategoryData
 {
-    /**
-     * 名称
-     */
-    private String title = "";
-    /**
-     * 可用数目
-     */
+    private String categoryId = "";
+    private String categoryName = "";
+    private String categoryCharging = "";
+    private String iconPath = "";
 
-    private String availableTotal = "0";
-    
-    public CategoryData()
+    public String getCategoryId()
     {
-        
+        return categoryId;
     }
 
-    protected CategoryData(Parcel in)
+    public void setCategoryId(String categoryId)
     {
-        title = in.readString();
-        availableTotal = in.readString();
+        this.categoryId = categoryId;
     }
 
-    public static final Creator<CategoryData> CREATOR = new Creator<CategoryData>()
+    public String getCategoryName()
     {
-        @Override
-        public CategoryData createFromParcel(Parcel in)
-        {
-            return new CategoryData(in);
-        }
-
-        @Override
-        public CategoryData[] newArray(int size)
-        {
-            return new CategoryData[size];
-        }
-    };
-
-    public String getTitle()
-    {
-        return title;
+        return categoryName;
     }
 
-    public void setTitle(String title)
+    public void setCategoryName(String categoryName)
     {
-        this.title = title;
+        this.categoryName = categoryName;
     }
 
-    public String getAvailableTotal()
+    public String getCategoryCharging()
     {
-        return availableTotal;
+        return categoryCharging;
     }
 
-    public void setAvailableTotal(String availableTotal)
+    public void setCategoryCharging(String categoryCharging)
     {
-        this.availableTotal = availableTotal;
+        this.categoryCharging = categoryCharging;
     }
 
-    public void setAvailableTotal(int availableTotal)
+    public String getIconPath()
     {
-        this.availableTotal = ""+availableTotal;
+        return iconPath;
     }
 
-    @Override
-    public int describeContents()
+    public void setIconPath(String iconPath)
     {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags)
-    {
-        dest.writeString(title);
-        dest.writeString(availableTotal);
+        this.iconPath = iconPath;
     }
 }

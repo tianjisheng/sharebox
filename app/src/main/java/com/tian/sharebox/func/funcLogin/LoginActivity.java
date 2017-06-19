@@ -195,6 +195,6 @@ public class LoginActivity extends BaseActivity implements LoginContract.View
 
     public void onClick(View view)
     {
-        ActivityRoute.dispatcherActivity(ActivityRoute.RegisterActivity, "");
+        ActivityRoute.dispatcherActivity(ActivityRoute.LoginActivity,ActivityRoute.RegisterActivity, "");
     }
 }

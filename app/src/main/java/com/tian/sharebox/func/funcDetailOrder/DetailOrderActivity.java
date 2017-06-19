@@ -70,6 +70,14 @@ public class DetailOrderActivity extends BaseActivity implements DetailOrderCont
         orderIdText = (TextView) findViewById(R.id.my_order_detail_item_body_order_id);
         orderStateText = (TextView) findViewById(R.id.my_order_detail_item_body_order_state);
         goodsText = (TextView) findViewById(R.id.my_order_detail_item_body_order_goods);
+        goodsText.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                ActivityRoute.dispatcherActivity(ActivityRoute.DetailOrderActivity, ActivityRoute.DetailGoodsActivity, "");
+            }
+        });
         orderStartTimeText = (TextView) findViewById(R.id.my_order_detail_item_body_start_time);
         orderEndTimeText = (TextView) findViewById(R.id.my_order_detail_item_body_end_time);
         orderDistanceText = (TextView) findViewById(R.id.my_order_detail_item_body_distance);
@@ -149,15 +157,15 @@ public class DetailOrderActivity extends BaseActivity implements DetailOrderCont
                 orderCostText.setText(getString(R.string.activity_order_cost, data.getCost()));
                 orderBorrowFromText.setText(getString(R.string.activity_order_borrow_from, data.getBorrowContainerId()));
                 orderReturnToText.setText(getString(R.string.activity_order_return_to, data.getReturnContainerId()));
-                cancelBtn.setEnabled(data.getStateCode()!=5);
-                payButton.setEnabled(data.getStateCode()==4);
+                cancelBtn.setEnabled(data.getStateCode() != 5);
+                payButton.setEnabled(data.getStateCode() == 4);
                 isLoadData = true;
             }
         });
     }
 
     @Override
-    public void cancel(boolean isSuccess,final String describe)
+    public void cancel(boolean isSuccess, final String describe)
     {
         runOnUiThread(new Runnable()
         {
@@ -165,13 +173,13 @@ public class DetailOrderActivity extends BaseActivity implements DetailOrderCont
             public void run()
             {
                 cancelBtn.setEnabled(true);
-                Snackbar.make(cancelBtn,describe,Snackbar.LENGTH_LONG).show(); 
+                Snackbar.make(cancelBtn, describe, Snackbar.LENGTH_LONG).show();
             }
         });
     }
 
     @Override
-    public void pay(boolean isSuccess,final String describe)
+    public void pay(boolean isSuccess, final String describe)
     {
         runOnUiThread(new Runnable()
         {
@@ -179,7 +187,7 @@ public class DetailOrderActivity extends BaseActivity implements DetailOrderCont
             public void run()
             {
                 payButton.setEnabled(true);
-                Snackbar.make(payButton,describe,Snackbar.LENGTH_LONG).show();
+                Snackbar.make(payButton, describe, Snackbar.LENGTH_LONG).show();
             }
         });
     }
@@ -195,25 +203,25 @@ public class DetailOrderActivity extends BaseActivity implements DetailOrderCont
         switch (view.getId())
         {
             case R.id.order_detail_cancel_btn:
-                if (detailData==null || detailData.getStateCode()==5)
+                if (detailData == null || detailData.getStateCode() == 5)
                 {
-                    Snackbar.make(view,"订单现在无法取消",Snackbar.LENGTH_LONG).show();
-                }else
+                    Snackbar.make(view, "订单现在无法取消", Snackbar.LENGTH_LONG).show();
+                } else
                 {
                     cancelBtn.setEnabled(false);
-                    presenter.cancelOrder(MyApplication.mApplication.getToken(),detailData.getOrderId());
+                    presenter.cancelOrder(MyApplication.mApplication.getToken(), detailData.getOrderId());
                 }
                 break;
             case R.id.order_detail_pay_btn:
-                if (detailData!=null&&detailData.getStateCode() == 4)
+                if (detailData != null && detailData.getStateCode() == 4)
                 {
                     payButton.setEnabled(false);
-                    presenter.payOrder(MyApplication.mApplication.getToken(),detailData.getOrderId());
-                }else
+                    presenter.payOrder(MyApplication.mApplication.getToken(), detailData.getOrderId());
+                } else
                 {
-                    Snackbar.make(view,"订单现在无法完成支付",Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, "订单现在无法完成支付", Snackbar.LENGTH_LONG).show();
                 }
-                
+
                 break;
             default:
 

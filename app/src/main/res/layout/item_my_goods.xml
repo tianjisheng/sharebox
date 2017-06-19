@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:weightSum="3">
+
+    <ImageView
+        android:id="@+id/item_my_goods_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_message_list_item_selector"
+        android:layout_weight="1"
+        android:src="@drawable/test_04"/>
+
+
+    <TextView
+        android:id="@+id/item_my_goods_name"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/my_message_list_item_selector"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="自行车"
+        android:textColor="@color/sub_app_color"
+        android:textSize="15.0sp"/>
+
+    <TextView
+        android:id="@+id/item_my_goods_charging"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/my_message_list_item_selector"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="每小时0.5元"
+        android:textColor="@color/sub_app_color"
+        android:textSize="15.0sp"/>
+</LinearLayout>

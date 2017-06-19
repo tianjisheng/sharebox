@@ -35,7 +35,7 @@ public class MessageDetailActivity extends BaseActivity
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request)
             {
-                ActivityRoute.dispatcherActivity("activity/UserCenterActivity","");
+                
                 return true;
             }
         });

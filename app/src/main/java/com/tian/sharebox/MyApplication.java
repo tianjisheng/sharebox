@@ -68,5 +68,5 @@ public class MyApplication extends Application
         shareUtil.setStringData(TOKEN_KEY, "");
     }
     
-    public static final boolean isDebug = false;
+    public static final boolean isDebug = true;
 }

@@ -33,55 +33,106 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/my_order_detail_item_body_order_goods"
+            style="@style/orderDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/activity_order_order_goods"
+            android:textColor="@color/tree_number_color"
+            android:textSize="20.0sp"/>
+
+
+        <TextView
             android:id="@+id/my_order_detail_item_body_order_id"
             style="@style/orderDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:text="@string/activity_order_order_id"/>
 
-        <include layout="@layout/divider_user_center"/>
 
         <TextView
             android:id="@+id/my_order_detail_item_body_order_state"
             style="@style/orderDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:text="@string/activity_order_order_state"/>
 
-        <include layout="@layout/divider_user_center"/>
 
-        <TextView
-            android:id="@+id/my_order_detail_item_body_order_goods"
-            style="@style/orderDetail"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/activity_order_order_goods"/>
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:background="@drawable/order_time_bg"
+            android:orientation="vertical">
 
-        <include layout="@layout/divider_user_center"/>
+            <TextView
+                android:id="@+id/my_order_detail_item_body_start_time"
+                style="@style/orderDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/circle_order_gray_background"
+                android:drawablePadding="@dimen/activity_horizontal_margin"
+                android:text="@string/activity_order_order_start_time"/>
 
-        <TextView
-            android:id="@+id/my_order_detail_item_body_start_time"
-            style="@style/orderDetail"
+            <include layout="@layout/divider_user_center"/>
+
+            <TextView
+                android:id="@+id/my_order_detail_item_body_end_time"
+                style="@style/orderDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/circle_order_green_background"
+                android:drawablePadding="@dimen/activity_horizontal_margin"
+                android:text="@string/activity_order_order_end_time"/>
+        </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/activity_order_order_start_time"/>
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:background="@drawable/order_container_bg"
+            android:orientation="vertical">
 
-        <include layout="@layout/divider_user_center"/>
+            <TextView
+                android:id="@+id/my_order_detail_item_body_borrow_from"
+                style="@style/orderDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/from_container_padding_left"
+                android:drawablePadding="@dimen/activity_horizontal_margin"
+                android:text="@string/activity_order_borrow_from"/>
 
-        <TextView
-            android:id="@+id/my_order_detail_item_body_end_time"
-            style="@style/orderDetail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/activity_order_order_end_time"/>
+            <include layout="@layout/divider_user_center"/>
 
-        <include layout="@layout/divider_user_center"/>
+            <TextView
+                android:id="@+id/my_order_detail_item_body_return_to"
+                style="@style/orderDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/return_container_padding_left"
+                android:drawablePadding="@dimen/activity_horizontal_margin"
+                android:text="@string/activity_order_return_to"/>
+
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/my_order_detail_item_body_distance"
             style="@style/orderDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/distance_order_padding_left"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
             android:text="@string/activity_order_distance"/>
 
         <include layout="@layout/divider_user_center"/>
@@ -91,29 +142,12 @@
             style="@style/orderDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/cost_order_padding_left"
+            android:drawablePadding="@dimen/activity_horizontal_margin"
             android:text="@string/activity_order_cost"/>
 
         <include layout="@layout/divider_user_center"/>
 
-        <TextView
-            android:id="@+id/my_order_detail_item_body_borrow_from"
-            style="@style/orderDetail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/activity_order_borrow_from"/>
-
-        <include layout="@layout/divider_user_center"/>
-
-
-        <TextView
-            android:id="@+id/my_order_detail_item_body_return_to"
-            style="@style/orderDetail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/activity_order_return_to"/>
-
-        <include layout="@layout/divider_user_center"/>
-        
     </LinearLayout>
 
     <LinearLayout
@@ -129,7 +163,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20.0dip"
             android:layout_marginRight="20.0dip"
-            android:layout_marginTop="20.0dip"
             android:layout_weight="1"
             android:background="@drawable/circle_qr_button_style"
             android:onClick="onClick"
@@ -142,12 +175,23 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20.0dip"
             android:layout_marginRight="20.0dip"
-            android:layout_marginTop="20.0dip"
             android:layout_weight="1"
             android:background="@drawable/circle_qr_button_style"
             android:onClick="onClick"
             android:text="@string/pay_order"/>
+
+        <Button
+            android:id="@+id/order_detail_return_test_btn"
+            style="@style/My.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20.0dip"
+            android:layout_marginRight="20.0dip"
+            android:background="@drawable/circle_qr_button_style"
+            android:onClick="onClick"
+            android:text="@string/return_goods_test"/>
     </LinearLayout>
+
 
     <include
         android:id="@+id/activity_order_detail_loading"

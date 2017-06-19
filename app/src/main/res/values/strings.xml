@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sharebox</string>
+    <string name="app_name">狂享</string>
     <string name="my_message_title">我的消息</string>
     <string name="user_center">用户中心</string>
     <string name="my_setting_title">用户中心</string>
@@ -36,6 +36,8 @@
     <string name="register">注册</string>
     <string name="register_disclaimer_text">无账号?    </string>
     <string name="login_disclaimer_text">点击-确定，即表示已阅读并同意</string>
+    <string name="goods_detail">物品详情</string>
+    <string name="return_goods_test">模拟还物</string>
 
     <string name="Invite_friend_together">呼朋唤友一起骑行</string>
     <string name="No.bike">单车编号</string>
@@ -336,7 +338,7 @@
     <string name="lock_ring_hint">"拍摄无法关锁的锁环位置照片 
 将车号包含在内"</string>
     <string name="lock_ring_issue">锁环扣不住</string>
-    
+
     <string name="login_fail">登录失败，请稍后重试</string>
     <string name="login_hint">请验证手机</string>
     <string name="login_text">立即登录</string>
@@ -543,7 +545,7 @@
     <string name="refund_with_negative_deposit">您已欠费，不能退押金</string>
     <string name="register.over">已认证</string>
     <string name="register_and_account">注册与账户</string>
-    
+
     <string name="register_failed">未认证</string>
     <string name="register_progress_idcard_verify">实名认证</string>
     <string name="register_progress_mobile_verify">手机绑定</string>
@@ -829,4 +831,8 @@
     <string name="prompt_user_name_number">用户名</string>
     <string name="prompt_input_user_name_register">请输入用户名</string>
     <string name="prompt_input_user_name_login">请输入用户名</string>
+
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

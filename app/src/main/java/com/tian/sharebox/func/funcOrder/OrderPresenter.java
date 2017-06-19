@@ -1,11 +1,14 @@
 package com.tian.sharebox.func.funcOrder;
+
 import static com.tian.sharebox.network.NetworkConfig.*;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.tian.sharebox.MyApplication;
 import com.tian.sharebox.data.OrderData;
 import com.tian.sharebox.network.okhttp.OkHttpApiImpl;
 import com.tian.sharebox.network.okhttp.callback.ShareBoxCallback;
+import com.tian.sharebox.utils.LogUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,15 +24,16 @@ import okhttp3.Call;
 public class OrderPresenter implements OrderContract.Presenter
 {
     private OrderContract.View view;
+
     public OrderPresenter(OrderContract.View view)
     {
         this.view = view;
     }
-    
+
     @Override
     public void onDestroy()
     {
-        
+
     }
 
     @Override
@@ -38,7 +42,7 @@ public class OrderPresenter implements OrderContract.Presenter
         view.showLoading();
         try
         {
-            OkHttpApiImpl.getInstance().getString(buildUrl(baseUrl, "/", orderAll, "/", token,"/",""+pageNum), new ShareBoxCallback()
+            OkHttpApiImpl.getInstance().getString(buildUrl(baseUrl, "/", orderAll, "/", token, "/", "" + pageNum), new ShareBoxCallback()
             {
                 @Override
                 public void handleCallbackFailure(Call call, IOException e)
@@ -72,7 +76,7 @@ public class OrderPresenter implements OrderContract.Presenter
                     data2.setStateCode(5);
                     data2.setOrderId("id002");
                     list.add(data2);
-                    view.refreshUI(2,0,list);
+                    view.refreshUI(2, 0, list);
                     view.hideLoading();
                 }
 
@@ -83,9 +87,9 @@ public class OrderPresenter implements OrderContract.Presenter
                     ArrayList<OrderData> list = new ArrayList<OrderData>();
                     int total = Json.getIntValue("total");
                     int pageNum = Json.getIntValue("page_num");
-                    if (jsonArray !=null && jsonArray.size()>0)
+                    if (jsonArray != null && jsonArray.size() > 0)
                     {
-                        for (Object object:jsonArray)
+                        for (Object object : jsonArray)
                         {
                             JSONObject o = (JSONObject) object;
                             OrderData data = new OrderData();
@@ -97,7 +101,7 @@ public class OrderPresenter implements OrderContract.Presenter
                             list.add(data);
                         }
                     }
-                    view.refreshUI(total,pageNum,list);
+                    view.refreshUI(total, pageNum, list);
                     view.hideLoading();
                 }
             });

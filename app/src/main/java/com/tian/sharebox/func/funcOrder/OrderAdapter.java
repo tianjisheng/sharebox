@@ -108,6 +108,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderHolder>
         private TextView goodsText;
         private TextView startTimeText;
         private TextView endTimeText;
+        private View endTimeLayout = null;
 
         public OrderHolder(View itemView)
         {
@@ -118,17 +119,26 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderHolder>
             goodsText = (TextView) itemView.findViewById(R.id.my_order_item_body_order_goods);
             startTimeText = (TextView) itemView.findViewById(R.id.my_order_item_body_start_time);
             endTimeText = (TextView) itemView.findViewById(R.id.my_order_item_body_end_time);
+            endTimeLayout = itemView.findViewById(R.id.my_order_item_body_end_time_layout);
         }
 
         public void setOrderData(OrderData data)
         {
             this.orderData = data;
-            orderDateText.setText(data.getStartTime());
-            orderIdText.setText(super.itemView.getResources().getString(R.string.activity_order_order_id,data.getOrderId()));
-            orderStateText.setText(super.itemView.getResources().getString(R.string.activity_order_order_state,data.getOrderState()));
-            goodsText.setText(super.itemView.getResources().getString(R.string.activity_order_order_goods,data.getGoodsName()));
-            startTimeText.setText(super.itemView.getResources().getString(R.string.activity_order_order_start_time,data.getStartTime()));
-            endTimeText.setText(super.itemView.getResources().getString(R.string.activity_order_order_end_time,data.getEndTime()));
+            orderDateText.setText("");
+            orderIdText.setText(super.itemView.getResources().getString(R.string.activity_order_order_id, data.getOrderId()));
+            orderStateText.setText(super.itemView.getResources().getString(R.string.activity_order_order_state, data.getOrderState()));
+            goodsText.setText(data.getGoodsName());
+            startTimeText.setText(super.itemView.getResources().getString(R.string.activity_order_order_start_time, data.getStartTime()));
+            if (data.getEndTime()==null)
+            {
+                endTimeLayout.setVisibility(View.GONE);
+            }else
+            {
+                endTimeLayout.setVisibility(View.VISIBLE);
+                endTimeText.setText(super.itemView.getResources().getString(R.string.activity_order_order_end_time, data.getEndTime())); 
+            }
+            
         }
 
         public void setListener(final OrderItemCallback orderItemCallback)
